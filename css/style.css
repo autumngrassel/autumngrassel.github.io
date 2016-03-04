@@ -2,3 +2,7 @@
 	float: right;
 	width:300px;
 }
+
+#main {
+	float: left;
+}
