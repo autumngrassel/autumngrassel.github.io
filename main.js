@@ -17,7 +17,7 @@ var svg = d3.select("#main").append("svg")
 	.attr("height", 400)
 	.attr("id", "svg_main")
 	.style("border", 1)
-	.style("stroke", "black");
+	.attr("stroke", "black");
 console.log("made it " + svg);
 
 
@@ -36,7 +36,7 @@ for (var i = 0; i <= 100; i++) {
 	Math.random(); // returns between 0 and 1
 	var x = Math.floor(Math.random() * (800 - 20)) + xStart;
 	var y = Math.floor(Math.random() * (400 - 20)) + yStart;
-	var rotate = Math.floor(Math.random() * 180);
+	var rotate = Math.floor(Math.random() * 89);
 	svg.append("rect")       // attach a rectangle
 	    .attr("x", x)         // position the left of the rectangle
 	    .attr("y", y)          // position the top of the rectangle
