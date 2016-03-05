@@ -16,26 +16,24 @@ var svg = d3.select("#main").append("svg")
 	.attr("width", 600)
 	.attr("height", 400)
 	.attr("id", "svg_main")
-	.style("border", 1);
+	.style("border", 1).attr("stroke", 'black');
 console.log("made it " + svg);
 
-
-
 var width = parseInt(d3.select("#svg_main").style("width"), 10);
+var height = parseInt(d3.select("svg_main").style("height"), 10);
 var xStart = parseInt(d3.select("#svg_main").style("x"), 10);
 var yStart = parseInt(d3.select("#svg_main").style("y"), 10);
 
-svg.append("rect")
-       			.attr("x", 0)
-       			.attr("y", 0)
-       			.attr("height", 400)
-       			.attr("width", 600)
-       			.style("stroke", 'black')
-       			.style("fill", "none")
-       			.style("stroke-width", 1);
+// svg.append("rect")
+// 	.attr("x", 0)
+// 	.attr("y", 0)
+// 	.attr("height", height)
+// 	.attr("width", width)
+// 	.style("stroke", 'black')
+// 	.style("fill", "none")
+// 	.style("stroke-width", 1);
 
 //parseInt(d3.select('#chart').style('width'), 10)
-var height = parseInt(d3.select("svg").style("height"), 10);
 console.log(width + " w ," + height + " h");
 
 
