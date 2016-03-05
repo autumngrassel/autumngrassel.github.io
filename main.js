@@ -41,7 +41,7 @@ var borderPath = svg.append("rect")
 	.style("stroke-width", 1);
 
 // populate svg with bacteria placed randomly
-for (var i = 0; i <= 100; i++) {
+for (var i = 0; i <= 10; i++) {
 	Math.random(); // returns between 0 and 1
 	var x = Math.floor(Math.random() * (560)) + xStart + 20;
 	var y = Math.floor(Math.random() * (360)) + yStart + 20;
