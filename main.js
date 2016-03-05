@@ -16,17 +16,18 @@ var svg = d3.select("#main").append("svg")
 	.attr("width", 600)
 	.attr("height", 400)
 	.attr("id", "svg_main")
-	.style("border", 1);
-	.attr("stroke", 'black');
+	.style("border", 1)
+	.style("stroke", "black");
 console.log("made it " + svg);
 
+
+
 var width = parseInt(d3.select("#svg_main").style("width"), 10);
-var height = parseInt(d3.select("svg").style("height"), 10);
 var xStart = parseInt(d3.select("#svg_main").style("x"), 10);
 var yStart = parseInt(d3.select("#svg_main").style("y"), 10);
 
-
 //parseInt(d3.select('#chart').style('width'), 10)
+var height = parseInt(d3.select("svg").style("height"), 10);
 console.log(width + " w ," + height + " h");
 
 
@@ -35,7 +36,7 @@ for (var i = 0; i <= 100; i++) {
 	Math.random(); // returns between 0 and 1
 	var x = Math.floor(Math.random() * (800 - 20)) + xStart;
 	var y = Math.floor(Math.random() * (400 - 20)) + yStart;
-	var rotate = Math.floor(Math.random() * 89);
+	var rotate = Math.floor(Math.random() * 180);
 	svg.append("rect")       // attach a rectangle
 	    .attr("x", x)         // position the left of the rectangle
 	    .attr("y", y)          // position the top of the rectangle
