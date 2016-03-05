@@ -19,14 +19,7 @@ var svg = d3.select("#main").append("svg")
 	.attr("id", "svg_main")
 	.attr("border", 1);
 
-var borderPath = svg.append("rect")
-	.attr("x", 0)
-	.attr("y", 0)
-	.attr("height", 600)
-	.attr("width", 400)
-	.style("stroke", 'black')
-	.style("fill", "none")
-	.style("stroke-width", 1);
+
 
 console.log("made it " + svg);
 
@@ -38,8 +31,16 @@ var yStart = parseInt(d3.select("#svg_main").style("y"), 10);
 
 //parseInt(d3.select('#chart').style('width'), 10)
 var height = parseInt(d3.select("svg").style("height"), 10);
-console.log(width + " w ," + height + " h, " + xStart + " xStart," + yStart + "yStart");
+console.log(width + " w ," + height + " h, " + xStart + " xStart, " + yStart + " yStart");
 
+var borderPath = svg.append("rect")
+	.attr("x", 0)
+	.attr("y", 0)
+	.attr("height", width)
+	.attr("width", height)
+	.style("stroke", 'black')
+	.style("fill", "none")
+	.style("stroke-width", 1);
 
 // populate svg with bacteria placed randomly
 for (var i = 0; i <= 100; i++) {
