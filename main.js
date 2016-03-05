@@ -53,7 +53,7 @@ for (var i = 0; i <= 100; i++) {
 	    .attr("width", 20)     // set the width
 	    .attr("rx", 5)         // set the x corner curve radius
 	    .attr("ry", 50)
-	    .attr("fill", "purple")
-	    .attr("transform", "rotate(" + rotate + ")");        // set the y corner curve radius
+	    .attr("fill", "purple");
+	    //.attr("transform", "rotate(" + rotate + ")");        // set the y corner curve radius
 
 }
