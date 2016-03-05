@@ -19,8 +19,6 @@ var svg = d3.select("#main").append("svg")
 	.attr("id", "svg_main")
 	.attr("border", 1);
 
-
-
 console.log("made it " + svg);
 
 
@@ -36,8 +34,8 @@ console.log(width + " w ," + height + " h, " + xStart + " xStart, " + yStart + "
 var borderPath = svg.append("rect")
 	.attr("x", 0)
 	.attr("y", 0)
-	.attr("height", width)
-	.attr("width", height)
+	.attr("height", height)
+	.attr("width", width)
 	.style("stroke", 'black')
 	.style("fill", "none")
 	.style("stroke-width", 1);
