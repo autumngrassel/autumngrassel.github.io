@@ -53,7 +53,9 @@ for (var i = 0; i <= 10; i++) {
 	    .attr("width", 20)     // set the width
 	    .attr("rx", 5)         // set the x corner curve radius
 	    .attr("ry", 50)
-	    .attr("fill", "purple");
-	    //.attr("transform", "rotate(" + rotate + ")");        // set the y corner curve radius
+	    .attr("fill", "purple")
+
+	    // if you don't have the rotation, they're all in the frame
+	    .attr("transform", "rotate(" + rotate + ")");        // set the y corner curve radius
 
 }
