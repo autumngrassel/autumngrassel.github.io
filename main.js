@@ -12,12 +12,14 @@ d3.select("#bacteriaColony").on("change", function() {
 	d3.select("#numberBacteriaEliminated").text("Number of Bacteria Eliminated: 0");
 });
 
+
 var svg = d3.select("#main").append("svg")
 	.attr("width", 600)
 	.attr("height", 400)
 	.attr("id", "svg_main")
 	.style("border", 1)
-	.attr("stroke", "black");
+	.attr("stroke", 'black');
+
 console.log("made it " + svg);
 
 
@@ -28,7 +30,7 @@ var yStart = parseInt(d3.select("#svg_main").style("y"), 10);
 
 //parseInt(d3.select('#chart').style('width'), 10)
 var height = parseInt(d3.select("svg").style("height"), 10);
-console.log(width + " w ," + height + " h");
+console.log(width + " w ," + height + " h, " + xStart + " xStart," + yStart + "yStart");
 
 
 // populate svg with bacteria placed randomly
