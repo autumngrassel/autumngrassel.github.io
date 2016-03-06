@@ -13,7 +13,7 @@ d3.select("#bacteriaColony").on("change", function() {
 });
 
 var svg = d3.select("#main").append("svg")
-	.attr("width", 600)
+	.attr("width", 800)
 	.attr("height", 400)
 	.attr("id", "svg_main")
 	.style("border", 1);
@@ -31,10 +31,13 @@ console.log(width + " w ," + height + " h");
 
 // populate svg with bacteria placed randomly
 for (var i = 0; i <= 100; i++) {
-	Math.random(); // returns between 0 and 1
-	var x = Math.floor(Math.random() * (800 - 20)) + xStart;
-	var y = Math.floor(Math.random() * (400 - 20)) + yStart;
-	var rotate = Math.floor(Math.random() * 89);
+	//Math.random(); // returns between 0 and 1
+	var x = Math.floor(Math.random() * (800 - 22));// + xStart;
+	var y = Math.floor(Math.random() * (400 - 10)); // + yStart;
+	var rotate = Math.floor(Math.random() * 180);
+	/*if (Math.random() < 0.5) {
+		rotate = -1 * rotate;
+	}*/
 	svg.append("rect")       // attach a rectangle
 	    .attr("x", x)         // position the left of the rectangle
 	    .attr("y", y)          // position the top of the rectangle
@@ -43,6 +46,6 @@ for (var i = 0; i <= 100; i++) {
 	    .attr("rx", 5)         // set the x corner curve radius
 	    .attr("ry", 50)
 	    .attr("fill", "purple")
-	    .attr("transform", "rotate(" + rotate + ")");        // set the y corner curve radius
+	    .attr("transform", "rotate(" + rotate + " " + (x + 10) + " " + (y + 5) + ")");        // set the y corner curve radius
 
 }
