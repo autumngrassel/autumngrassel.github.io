@@ -27,7 +27,6 @@ var width = parseInt(d3.select("#svg_main").style("width"), 10);
 var xStart = parseInt(d3.select("#svg_main").style("x"), 10);
 var yStart = parseInt(d3.select("#svg_main").style("y"), 10);
 
-//parseInt(d3.select('#chart').style('width'), 10)
 var height = parseInt(d3.select("svg").style("height"), 10);
 console.log(width + " w ," + height + " h, " + xStart + " xStart, " + yStart + " yStart");
 
@@ -43,7 +42,7 @@ var borderPath = svg.append("rect")
 // populate svg with bacteria placed randomly
 for (var i = 0; i <= 100; i++) {
 	//Math.random(); // returns between 0 and 1
-	var x = Math.floor(Math.random() * (760)) + 20;// + xStart;
+	var x = Math.floor(Math.random() * (780)) + 0;// + xStart;
 	var y = Math.floor(Math.random() * (380)) + 10; // + yStart;
 	var rotate = Math.floor(Math.random() * 90);
 	if (Math.random() < 0.5) {
@@ -55,9 +54,8 @@ for (var i = 0; i <= 100; i++) {
 	    .attr("height", 10)    // set the height
 	    .attr("width", 20)     // set the width
 	    .attr("rx", 5)         // set the x corner curve radius
-	    .attr("ry", 50)
 	    .attr("fill", "purple")
-	    .attr("transform", "rotate(" + rotate + " " + (x + 10) + " " + (y + 5) + ")");        // set the y corner curve radius
+	    .attr("transform", "rotate(" + rotate + " " + (x + 10 ) + " " + (y + 5) + ")");        // set the y corner curve radius
 	    // if you don't have the rotation, they're all in the frame
 	    //.attr("transform", "rotate(" + rotate + ")");        // set the y corner curve radius
 
