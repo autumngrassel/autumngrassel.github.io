@@ -1,3 +1,9 @@
+// Initialize tooltip
+tip = d3.tip()
+  .attr('class', 'tooltip')
+  .html(function(d) {
+            return "<div><h5>Cell Name</h5><p>Health Level: X</p><p>Age: Y</p></div>"});
+
 d3.select("#dosage").on("change", function() {
 	d3.select("#displayDosage").text("Dosage: " + this.value + "mg");
 });
@@ -40,6 +46,24 @@ var borderPath = svg.append("rect")
 	.style("fill", "none")
 	.style("stroke-width", 1);
 
+//  Function triggered when a cell is hovered over
+var MouseOver = function() {
+  console.log(this);
+	var rect = d3.select(this);
+	rect.transition().duration(400)
+		.attr("r", 20);
+  console.log(rect[0]);
+  tip.show(rect[0][0]);
+}
+
+//  Function triggered when a cell is mousedout
+var MouseOut = function(object) {
+	tip.hide();
+	var rect = d3.select(this);
+	rect.transition().duration(400)
+		.attr("r", 10);
+}
+
 // populate svg with bacteria placed randomly
 for (var i = 0; i <= 10; i++) {
 	Math.random(); // returns between 0 and 1
@@ -54,6 +78,9 @@ for (var i = 0; i <= 10; i++) {
 	    .attr("rx", 5)         // set the x corner curve radius
 	    .attr("ry", 50)
 	    .attr("fill", "purple")
+
+			.on("mouseover", MouseOver )
+    	.on("mouseout", MouseOut)
 
 	    // if you don't have the rotation, they're all in the frame
 	    .attr("transform", "rotate(" + rotate + ")");        // set the y corner curve radius

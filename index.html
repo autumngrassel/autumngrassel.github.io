@@ -3,6 +3,9 @@
 <head>
 	<title>474 Final Project</title>
 	<script src="d3/d3.min.js" charset="utf-8"></script>
+	<script src="javascript/jquery-2.2.1.min.js"></script>
+	<script src="bootstrap/js/bootstrap.js"></script>
+	<script src="javascript/d3-tip.js"></script>
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
@@ -11,23 +14,23 @@
 		<h1>How Antibiotic Resistance Happens</h1>
 		<br/>
 		<div id="main">
-		</div>		
+		</div>
 
 		<div id="sliders">
 			<h2>Starting values:</h2>
 	        <p id="displayDosage">Dosage: 500mg</p>
-	        <input type="range" min="100" max="1000" value="500" step="100" id="dosage"> 
+	        <input type="range" min="100" max="1000" value="500" step="100" id="dosage">
 	        <p id="displayTreatmentDuration">Treatment Duration: 3 days</p>
-	        <input type="range" min="2" max="15" value="3" step="1" id="treatmentDuration">        
+	        <input type="range" min="2" max="15" value="3" step="1" id="treatmentDuration">
 	        <p id="displayBacteriaColony">Size of Bacteria Colony: 1000</p>
-	        <input type="range" min="100" max="10000" value="1000" step="100" id="bacteriaColony"> 
+	        <input type="range" min="100" max="10000" value="1000" step="100" id="bacteriaColony">
 
 	        <h2>Current Statistics:</h2>
 	        <p id="numberBacteriaEliminated">Number of Bacteria Eliminated: 0</p>
 	        <p id="numberBacteriaAlive">Number of Bacteria Alive: 1000</p>
 		</div>
 
-		<script src="main.js" charset="utf-8"></script>
+		<script src="javascript/main.js" charset="utf-8"></script>
 
 
 	</div>
