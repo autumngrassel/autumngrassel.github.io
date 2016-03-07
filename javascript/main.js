@@ -85,7 +85,7 @@ for (var i = 0; i <= 100; i++) {
 	    .attr("width", 20)     // set the width
 	    .attr("rx", 5)         // set the x corner curve radius
 	    .attr("fill", "purple")
-      .attr("opacity", .7)
+      .attr("opacity", 0.7)
 
 			.on("mouseover", MouseOver )
     	.on("mouseout", MouseOut)
