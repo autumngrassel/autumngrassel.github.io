@@ -2,7 +2,7 @@
 tip = d3.tip()
   .attr('class', 'tooltip')
   .html(function(d) {
-            return "<div><h5>Cell Name</h5><p>Health Level: X</p><p>Age: Y</p></div>"});
+            return "<div><h5>Cell X92</h5><p>Health Level: 82%</p><p>Days Alive: 13</p></div>"});
 
 d3.select("#dosage").on("change", function() {
 	d3.select("#displayDosage").text("Dosage: " + this.value + "mg");
@@ -77,13 +77,15 @@ for (var i = 0; i <= 100; i++) {
 	if (Math.random() < 0.5) {
 		rotate = -1 * rotate;
 	}
-	svg.append("rect")       // attach a rectangle
-	    .attr("x", x)         // position the left of the rectangle
+	svg.append("rect")         // attach a rectangle
+      .attr("class", "bacteria")
+	    .attr("x", x)          // position the left of the rectangle
 	    .attr("y", y)          // position the top of the rectangle
 	    .attr("height", 10)    // set the height
 	    .attr("width", 20)     // set the width
 	    .attr("rx", 5)         // set the x corner curve radius
 	    .attr("fill", "purple")
+      .attr("opacity", .7)
 
 			.on("mouseover", MouseOver )
     	.on("mouseout", MouseOut)

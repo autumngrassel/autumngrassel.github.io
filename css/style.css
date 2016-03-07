@@ -40,3 +40,14 @@
   top: 100%;
   left: 0;
 }
+
+.bacteria {
+
+}
+
+.bacteria:hover {
+	stroke : black;
+	stroke-width: 3;
+}
+
+#dosage
