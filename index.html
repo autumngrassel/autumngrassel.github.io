@@ -6,29 +6,38 @@
 	<script src="javascript/jquery-2.2.1.min.js"></script>
 	<script src="bootstrap/js/bootstrap.js"></script>
 	<script src="javascript/d3-tip.js"></script>
-	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
 	<div class="container">
-		<h1>How Antibiotic Resistance Happens</h1>
-		<h2><small>Akash Puri, Madison Ikeda, Autumn Grassel</small></h2>
+		<h1 class="text-info">How Antibiotic Resistance Happens <br/> <small>Akash Puri, Madison Ikeda, Autumn Grassel</small></h1>
 		<br/>
-		<div id="main">
+		<div>
+			<div id="main" width="800" height="400">
+			</div>
+
+			<div id="sliders">
+				<div id="values">
+					<h3>Starting values:</h3>
+			        <p id="displayDosage">Dosage: 500mg</p>
+			        <input type="range" min="100" max="1000" value="500" step="100" id="dosage">
+			        <p id="displayTreatmentDuration">Treatment Duration: 3 days</p>
+			        <input type="range" min="2" max="15" value="3" step="1" id="treatmentDuration">
+			        <p id="displayBacteriaColony">Size of Bacteria Colony: 1000</p>
+			        <input type="range" min="500" max="10000" value="1000" step="100" id="bacteriaColony">
+			    </div>
+			   	<div id="stats">
+		        	<h3>Current Statistics:</h3>
+		        	<p id="numberBacteriaEliminated">Number of Bacteria Eliminated: 0</p>
+		        	<p id="numberBacteriaAlive">Number of Bacteria Alive: 1000</p>
+		        </div>
+			</div>
 		</div>
 
-		<div id="sliders">
-			<h2>Starting values:</h2>
-	        <p id="displayDosage">Dosage: 500mg</p>
-	        <input type="range" min="100" max="1000" value="500" step="100" id="dosage">
-	        <p id="displayTreatmentDuration">Treatment Duration: 3 days</p>
-	        <input type="range" min="2" max="15" value="3" step="1" id="treatmentDuration">
-	        <p id="displayBacteriaColony">Size of Bacteria Colony: 1000</p>
-	        <input type="range" min="100" max="10000" value="1000" step="100" id="bacteriaColony">
-
-	        <h2>Current Statistics:</h2>
-	        <p id="numberBacteriaEliminated">Number of Bacteria Eliminated: 0</p>
-	        <p id="numberBacteriaAlive">Number of Bacteria Alive: 1000</p>
+		<div id="buttons">
+			<button onclick="drawBacteria()" type="button" class="btn btn-primary">Advance</button>
+			<button type="button" class="btn">Clear</button>
 		</div>
 
 		<script src="javascript/main.js" charset="utf-8"></script>

@@ -7,8 +7,13 @@
 	float: left;
 }
 
+#buttons {
+	float: right;
+}
+
 #svg_main {
-background: #E3E3E3;
+	background: rgba(227, 227, 227, .2);
+	/* #E3E3E3;*/
 }
 
 .container {
