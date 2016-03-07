@@ -1,4 +1,6 @@
 
+
+
 // Initialize tooltip
 tip = d3.tip()
   .attr('class', 'tooltip')
@@ -25,8 +27,6 @@ var svg = d3.select("#main").append("svg")
 	.attr("height", 400)
 	.attr("id", "svg_main")
 	.attr("border", 1);
-
-drawBacteria();
 
 svg.call(tip);
 
@@ -70,6 +70,33 @@ var MouseOut = function(object) {
   .attr("width", 20)
   .attr("rx", 5);
 }
+for (var i = 0; i <= 200; i++) {
+		//Math.random(); // returns between 0 and 1
+		var x = Math.floor(Math.random() * (780)) + 0;// + xStart;
+		var y = Math.floor(Math.random() * (380)) + 10; // + yStart;
+		var rotate = Math.floor(Math.random() * 90);
+		if (Math.random() < 0.5) {
+			rotate = -1 * rotate;
+		}
+		svg.append("rect")         // attach a rectangle
+	      .attr("class", "bacteria")
+		    .attr("x", x)          // position the left of the rectangle
+		    .attr("y", y)          // position the top of the rectangle
+		    .attr("height", 10)    // set the height
+		    .attr("width", 20)     // set the width
+		    .attr("rx", 5)         // set the x corner curve radius
+		    .attr("fill", "purple")
+	      .attr("opacity", 0.7)
+
+				.on("mouseover", MouseOver )
+	    	.on("mouseout", MouseOut)
+
+		    .attr("transform", "rotate(" + rotate + " " + (x + 10 ) + " " + (y + 5) + ")");
+	      // set the y corner curve radius
+		    // if you don't have the rotation, they're all in the frame
+		    //.attr("transform", "rotate(" + rotate + ")");        // set the y corner curve radius
+
+	}
 
 function drawBacteria() {
 	// populate svg with bacteria placed randomly
