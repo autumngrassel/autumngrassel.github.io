@@ -7,13 +7,17 @@
 	float: left;
 }
 
+.container {
+	margin-top: 50px;
+}
+
 .tooltip {
 	border: 1px solid #FF530D;
 	border-radius: 5px;
 	padding: 5px 10px;
 	text-align: center;
 	color: white;
-	background: rgba(37, 37, 37, 0.7);
+	background: rgba(37, 37, 37, 0.8);
 }
 
 .tooltip h5 {
