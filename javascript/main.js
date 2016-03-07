@@ -25,6 +25,8 @@ var svg = d3.select("#main").append("svg")
 	.attr("id", "svg_main")
 	.attr("border", 1);
 
+svg.call(tip);
+
 console.log("made it " + svg);
 
 
@@ -50,9 +52,10 @@ var MouseOver = function() {
   console.log(this);
 	var rect = d3.select(this);
 	rect.transition().duration(400)
-		.attr("r", 20);
-  console.log(rect[0]);
-  tip.show(rect[0][0]);
+		.attr("height", 20)
+    .attr("width", 40)
+    .attr("rx", 10);
+  tip.show(rect);
 }
 
 //  Function triggered when a cell is mousedout
@@ -60,7 +63,9 @@ var MouseOut = function(object) {
 	tip.hide();
 	var rect = d3.select(this);
 	rect.transition().duration(400)
-		.attr("r", 10);
+  .attr("height", 10)
+  .attr("width", 20)
+  .attr("rx", 5);
 }
 
 // populate svg with bacteria placed randomly
