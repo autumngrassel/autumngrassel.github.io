@@ -4,74 +4,89 @@
 	<title>474 Final Project</title>
 	<script src="d3/d3.min.js" charset="utf-8"></script>
 	<script src="javascript/jquery-2.2.1.min.js"></script>
-	<script src="bootstrap/js/bootstrap.js"></script>
-	<script src="javascript/d3-tip.js"></script>
-	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<script src="http://localhost/autumngrassel.github.io/bootstrap/js/bootstrap.js"></script>
+	<script src="http://localhost/autumngrassel.github.io/javascript/d3-tip.js"></script>
+	<link rel="stylesheet" type="text/css" href="http://localhost/autumngrassel.github.io/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="http://localhost/autumngrassel.github.io/css/style.css">
+	<link rel="stylesheet" type="text/css" href="http://localhost/autumngrassel.github.io/css/scrollytellingStyle.css">
 </head>
 <body>
-	<div class="container">
-		<div id="first">
-			<h1 class="text-info">How Antibiotic Resistance Happens <br/> <small>Akash Puri, Madison Ikeda, Autumn Grassel</small></h1>
-			<br/>
-			<div>
-				<div id="main" width="800" height="400">
-					</div>
+	<div id='graphic'>
+	    <div id='sections'>
+	        <section class="step">
+	          <div class="title">			
+	          	<h1 class="text-info">How Antibiotic Resistance Happens <br/> 
+	          		<small>Akash Puri, Madison Ikeda, Autumn Grassel</small>
+	          	</h1> 
+	          </div>
+	        </section>
 
-					<div id="sliders">
-						<div id="values">
-							<h3>Starting values:</h3>
-					        <p id="displayDosage">Dosage: 500mg</p>
-					        <input type="range" min="100" max="1000" value="500" step="100" id="dosage">
-					        <p id="displayTreatmentDuration">Treatment Duration: 3 days</p>
-					        <input type="range" min="2" max="15" value="3" step="1" id="treatmentDuration">
-					        <p id="displayBacteriaColony">Size of Bacteria Colony: 1000</p>
-					        <input type="range" min="500" max="10000" value="1000" step="100" id="bacteriaColony">
-					    </div>
-					   	<div id="stats">
-				        	<h3>Current Statistics:</h3>
-				        	<p id="numberBacteriaEliminated">Number of Bacteria Eliminated: 0</p>
-				        	<p id="numberBacteriaAlive">Number of Bacteria Alive: 1000</p>
-				        </div>
+	        <section class="step">
+	        	<div class="container">
+					<div id="first">
+
+						<br/>
+						<div>
+							<div id="main" width="800" height="400">
+							</div>
+
+							<div id="sliders">
+								<div id="values">
+									<h3>Starting values:</h3>
+							        <p id="displayDosage">Dosage: 500mg</p>
+							        <input type="range" min="100" max="1000" value="500" step="100" id="dosage">
+							        <p id="displayTreatmentDuration">Treatment Duration: 3 days</p>
+							        <input type="range" min="2" max="15" value="3" step="1" id="treatmentDuration">
+							        <p id="displayBacteriaColony">Size of Bacteria Colony: 1000</p>
+							        <input type="range" min="500" max="10000" value="1000" step="100" id="bacteriaColony">
+							    </div>
+							   	<div id="stats">
+						        	<h3>Current Statistics:</h3>
+						        	<p id="numberBacteriaEliminated">Number of Bacteria Eliminated: 0</p>
+						        	<p id="numberBacteriaAlive">Number of Bacteria Alive: 1000</p>
+						        </div>
+							</div>
+						</div>
+
+						<div id="buttons">
+							<button onclick="drawBacteria()" type="button" class="btn btn-primary">Advance</button>
+							<button type="button" class="btn">Clear</button>
+						</div>
 					</div>
 				</div>
+	        </section>
 
-				<div id="buttons">
-					<button onclick="drawBacteria()" type="button" class="btn btn-primary">Advance</button>
-					<button type="button" class="btn">Clear</button>
+	        <section class="step">
+		        <div id="second" class="row">
+					<h2>Explanatory Section</h2>
+					<div class="col-lg-4 explanation">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec ante odio. Nunc lobortis tristique risus, non molestie mi auctor eu.
+							 Suspendisse ut diam auctor, pharetra purus et, convallis augue. Praesent ut rhoncus nulla. Sed fringilla, nisl et posuere consectetur,
+							 orci dolor hendrerit massa, ac finibus metus elit in erat. Nam viverra aliquam purus non faucibus. Aliquam ac volutpat dolor. Phasellus
+							 tempor turpis vel eros fermentum blandit at quis tortor.
+
+						</p>
+					</div>
+					<div class="col-lg-4 explanation">
+						<p>Nullam dolor nisl, laoreet ac massa sit amet, dictum imperdiet sem. Fusce non sem ante. Curabitur diam mi, placerat ut tempor sit amet,
+							convallis in leo. Sed hendrerit faucibus velit eget condimentum. Donec aliquam arcu quis felis convallis euismod. Aliquam sodales bibendum
+							erat at euismod. Donec libero neque, laoreet non condimentum at, facilisis in tellus. Nullam commodo nibh vitae orci pretium, in imperdiet ante pellentesque.
+							Integer varius nisi et bibendum maximus.</p>
+					</div>
+					<div class="col-lg-4 explanation">
+						<p>Donec ac tincidunt tortor. Suspendisse feugiat nulla vitae porttitor malesuada. Duis aliquet imperdiet sollicitudin. Nam finibus at nulla a
+							 pulvinar. Integer maximus est non arcu interdum semper. Quisque nec leo pellentesque, malesuada quam eu, suscipit elit. Maecenas in est ut
+							 mauris porta lobortis eget vitae mauris. Duis quis blandit nulla. Vivamus pharetra elementum nunc in convallis. Phasellus a ligula ut lectus
+							  aliquet consectetur. Suspendisse vestibulum diam justo, ac molestie nulla sollicitudin nec. Vivamus in auctor dolor. Morbi augue lectus,
+								maximus ac ligula nec, pretium blandit risus. Vivamus sed tempus quam, eu elementum neque. Maecenas sit amet lectus nec odio elementum volutpat.
+						</p>
+					</div>
 				</div>
-			</div>
-		</div>
-
-		<div id="second" class="row">
-			<h2>Explanatory Section</h2>
-			<div class="col-lg-4 explanation">
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec ante odio. Nunc lobortis tristique risus, non molestie mi auctor eu.
-					 Suspendisse ut diam auctor, pharetra purus et, convallis augue. Praesent ut rhoncus nulla. Sed fringilla, nisl et posuere consectetur,
-					 orci dolor hendrerit massa, ac finibus metus elit in erat. Nam viverra aliquam purus non faucibus. Aliquam ac volutpat dolor. Phasellus
-					 tempor turpis vel eros fermentum blandit at quis tortor.
-
-</p>
-			</div>
-			<div class="col-lg-4 explanation">
-				<p>Nullam dolor nisl, laoreet ac massa sit amet, dictum imperdiet sem. Fusce non sem ante. Curabitur diam mi, placerat ut tempor sit amet,
-					convallis in leo. Sed hendrerit faucibus velit eget condimentum. Donec aliquam arcu quis felis convallis euismod. Aliquam sodales bibendum
-					erat at euismod. Donec libero neque, laoreet non condimentum at, facilisis in tellus. Nullam commodo nibh vitae orci pretium, in imperdiet ante pellentesque.
-					Integer varius nisi et bibendum maximus.</p>
-			</div>
-			<div class="col-lg-4 explanation">
-				<p>Donec ac tincidunt tortor. Suspendisse feugiat nulla vitae porttitor malesuada. Duis aliquet imperdiet sollicitudin. Nam finibus at nulla a
-					 pulvinar. Integer maximus est non arcu interdum semper. Quisque nec leo pellentesque, malesuada quam eu, suscipit elit. Maecenas in est ut
-					 mauris porta lobortis eget vitae mauris. Duis quis blandit nulla. Vivamus pharetra elementum nunc in convallis. Phasellus a ligula ut lectus
-					  aliquet consectetur. Suspendisse vestibulum diam justo, ac molestie nulla sollicitudin nec. Vivamus in auctor dolor. Morbi augue lectus,
-						maximus ac ligula nec, pretium blandit risus. Vivamus sed tempus quam, eu elementum neque. Maecenas sit amet lectus nec odio elementum volutpat.
-					</p>
-			</div>
-		</div>
-
+	    	</section>
+  		</div>
 		<script src="javascript/main.js" charset="utf-8"></script>
-
-
+		<script src="http://localhost/autumngrassel.github.io/javascript/explanations.js" charset="utf-8"></script>
+		<script src="http://localhost/autumngrassel.github.io/javascript/scroller.js" charset="utf-8"></script>
 	</div>
 </body>
 </html>

@@ -1,6 +1,3 @@
-
-
-
 // Initialize tooltip
 tip = d3.tip()
   .attr('class', 'tooltip')
