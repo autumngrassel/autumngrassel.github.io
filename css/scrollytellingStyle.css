@@ -22,7 +22,7 @@ img {
 .title {
 	background-image: url("bacteria.jpg");
 	height: 250px;
-	/*position: fixed;*/
+	position: fixed;
 	top: 0;
 	text-align: center;
 	color: white;
