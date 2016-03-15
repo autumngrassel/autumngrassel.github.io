@@ -1,0 +1,44 @@
+img {
+	width: 80%;
+}
+
+
+#resistanceDiagram {
+	display: inline-block;
+	position: relative;
+	text-align: center;
+	width: 100%;
+}
+
+.step {
+ 	margin-bottom: 200px;
+}
+
+.title {
+	background-image: url("bacteria.jpg");
+	height: 300px;
+	position: fixed;
+	top: 0;
+	text-align: center;
+	color: white;
+	width: 100%;
+}
+
+#authors {
+	font-size: 22px;
+}
+
+.text-inf {
+	position: relative;
+	height: 0px;
+}
+
+#definitions {
+	clear: left;
+	top:200px;
+	z-index: 2;
+}
+
+#titleSection{ 
+	/*background-image: url("bacteria.jpg");*/
+}
