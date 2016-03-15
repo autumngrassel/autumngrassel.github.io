@@ -50,7 +50,7 @@ img {
 #problem {
 	height: 400px;
 	text-align: center;
-	margin: 0 auto;
+	/*margin: 0 auto;*/
 	display: block;
 	padding-top: 150px;
 	padding: bottom 150px;
