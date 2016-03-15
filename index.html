@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>474 Final Project</title>
+	<title>474 Final Project</title>
   <script src="/d3/d3.min.js" charset="utf-8"></script>
   <script src="/javascript/jquery-2.2.1.min.js"></script>
   <script src="/bootstrap/js/bootstrap.js"></script>
@@ -29,48 +29,63 @@
             </div>
           </section>
 
+	        <section id="definitionsHack" class="step">
+	        	<h2>hi</h2>
+	        	<p>secret hack</p>
+	        </section>
+
+	        <section id="problem" class="step">
+	        	<h1>The Problem</h1>
+	        	<p>Antibiotic resistance, when bacteria do not respond to the drugs
+					designed to kill them, threatens to return us to the time when
+					simple infections were often fatal. To address this threat, CDC and
+					public health partners must fully implement the National Strategy
+					for Combating Antibiotic-Resistant Bacteria.</p>
+	        </section>
+	        
           <section id="definitions" class="step">
             <h2>Definitions</h2>
             <p><strong>Antibiotic: </strong>A type of drug that kills or stops the growth of bacteria.</p>
           </section>
 
-          <section class="step">
-            <div id="second" class="row">
-              <h2>Antibiotic Resistance</h2>
-              <div class="col-lg-4 explanation">
-            <p>Antibiotic resistance is the ability of microbes such as bacteria, viruses, fungi and parasites
-              to resist the effect of antibiotics. 
-            </p>
-          </div>
-          <div class="col-lg-4 explanation">
-            <p>Bacteria evolve resistance and immunity to antibiotics through natural selection. 
-              Resistant bacteria evolve, reproduce and spread throughout your body which can potentially lead 
-              to more serious issues.
-            </p>
-          </div>
-          <div class="col-lg-4 explanation">
-            <p>Some microbes are harmless and even beneficial to health, but some can be harmful and cause disease
-              to humans, animals or plants. Each and every microbe has the potential to become drug-resistant organisms.
-            </p>
-          </div>
-        </div>
-          </section>
+	        <section id="basic-info" class="step">
+	        	<div id="second" class="row">
+	        		<h2>What is Antibiotic Resistance?</h2>
+	        		<div class="col-lg-4 explanation">
+						<p><strong>Antibiotic resistance</strong> is the ability of microbes such as bacteria, viruses, fungi and parasites
+							to resist the effect of antibiotics. 
+						</p>
+					</div>
+					<div class="col-lg-4 explanation">
+						<p>Bacteria evolve resistance and immunity to antibiotics through natural selection. 
+							Resistant bacteria evolve, reproduce and spread throughout your body which can potentially lead 
+							to more serious issues.
+						</p>
+					</div>
+					<div class="col-lg-4 explanation">
+						<p>Some microbes are harmless and even beneficial to health, but some can be harmful and cause disease
+							to humans, animals or plants. Each and every microbe has the potential to become drug-resistant organisms.
+						</p>
+					</div>
+				</div>
+	        </section>
 
-          <section class="step">
-            <div id="resistanceDiagram">
-              <img src="http://www.cdc.gov/drugresistance/images/2-how-antibiotic-resistence-happens.jpg" alt="diagram" />
-              <br/>
-              <a href="http://www.cdc.gov/drugresistance/about.html">Source: Center for Disease Control</a>
-            </div>
-          </section>
 
+	        <section class="step">
+	        	<div id="resistanceDiagram">
+	        		<img src="http://www.cdc.gov/drugresistance/images/2-how-antibiotic-resistence-happens.jpg" alt="diagram" />
+	        		<br/>
+	        		<a href="http://www.cdc.gov/drugresistance/about.html">Source: Center for Disease Control</a>
+	        	</div>
+	        </section>
+
+  
           <section class="step">
             <div class="container">
           <div id="first">
             <br/>
             <div>
               <h1>Antibiotic Simulation</h1>
-              <!-- <div id="main" width="800" height="400"> -->
               <div id="main" width="800" height="400">
                 <div id="display" width="800" height="400">
                 <!-- Insert D3 Display element here -->

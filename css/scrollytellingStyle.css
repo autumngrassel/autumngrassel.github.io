@@ -11,17 +11,23 @@ img {
 }
 
 .step {
- 	margin-bottom: 200px;
+ 	margin-bottom: 250px;
+ 	/*border: 1px solid green;*/
+}
+
+#basic-info {
+	z-index: 90;
 }
 
 .title {
 	background-image: url("bacteria.jpg");
-	height: 300px;
+	height: 250px;
 	/*position: fixed;*/
 	top: 0;
 	text-align: center;
 	color: white;
 	width: 100%;
+	z-index: -1;
 }
 
 #authors {
@@ -39,6 +45,14 @@ img {
 	z-index: 2;
 }
 
-#titleSection{ 
-	/*background-image: url("bacteria.jpg");*/
+
+#problem {
+	height: 400px;
+	width: 50%;
+	text-align: center;
+	margin: 0 auto;
+}
+
+#problem.p {
+	font-size: 24px;
 }
