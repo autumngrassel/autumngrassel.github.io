@@ -12,6 +12,8 @@ img {
 
 .step {
  	padding-bottom: 200px;
+ 	/*margin-bottom: 250px;*/
+ 	margin-top: 50px;
  	/*border: 1px solid green;*/
 }
 
@@ -62,8 +64,22 @@ img {
 	padding-right: 25%;
 	text-align: center;
 	margin: 0 auto;
+	display: block;
 }
 
-#problem.p {
-	font-size: 24px;
+#problem-statement {
+	font-size: 20px;
 }
+
+.img-circle {
+	border-radius: 50%;
+}
+
+.col-problem {
+	float: left;
+  	margin: 0 1.5%;
+  	width: 30%;
+}
+
+#basic-info {
+	clear: left;
