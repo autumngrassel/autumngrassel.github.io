@@ -11,8 +11,8 @@ img {
 }
 
 .step {
- 	padding-bottom: 100px;
- 	/*margin-bottom: 250px;*/
+ 	/*padding-bottom: 100px;*/
+ 	margin-bottom: 150px;
  	/*border: 1px solid green;*/
 }
 #basic-info {
@@ -80,5 +80,5 @@ img {
 
 #basic-info {
 	clear: left;
-	padding-top: 100px;
+	margin-top: 100px;
 }
