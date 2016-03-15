@@ -48,13 +48,14 @@ img {
 
 #problem {
 	height: 400px;
-	width: 50%;
 	text-align: center;
 	margin: 0 auto;
+	display: block;
 }
 
 #problem-statement {
 	font-size: 20px;
+	width: 50%;
 }
 
 .img-circle {
@@ -62,6 +63,7 @@ img {
 }
 
 .col-problem {
-	display: inline-block;
-	padding: 10px;
+	display: inline;
+	float: left;
+
 }
