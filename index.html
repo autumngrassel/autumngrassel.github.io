@@ -2,16 +2,19 @@
 <html>
 <head>
 	<title>474 Final Project</title>
-	<script src="d3/d3.min.js" charset="utf-8"></script>
-	<script src="javascript/jquery-2.2.1.min.js"></script>
+	<script src="/d3/d3.min.js" charset="utf-8"></script>
+	<script src="/javascript/jquery-2.2.1.min.js"></script>
 	<script src="/bootstrap/js/bootstrap.js"></script>
 	<script src="/javascript/d3-tip.js"></script>
+	<script src="/javascript/progress.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="/css/style.css">
 	<link rel="stylesheet" type="text/css" href="/css/scrollytellingStyle.css">
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Muli">
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Questrial">
 
+	<link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/progress.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
 	<div id='graphic'>
@@ -69,6 +72,24 @@
 						<div>
 							<h1>Antibiotic Simulation</h1>
 							<div id="main" width="800" height="400">
+							<div id="main">
+								<div id="display">
+								<!-- Insert D3 Display element here -->
+								</div>
+								<div id="time">
+									<a id="btn-play"class="btn btn-success"><i class="fa fa-play"></i></a>
+									<a id="btn-stop" class="btn btn-danger"><i class="fa fa-stop"></i></a>
+									<a id="btn-fast" class="btn btn-info"><i class="fa fa-step-forward"></i></a>
+									<a id="btn-2fast" class="btn btn-primary"><i class="fa fa-fast-forward"></i></a>
+									<div id="timebar" class="progressjs-progress progressjs-theme-green">	
+										<div class="progressjs-inner">
+											<div class="progressjs-percent">
+												3%
+											</div>
+										</div>
+									</div>
+								</div>
+
 							</div>
 
 							<div id="sliders">
