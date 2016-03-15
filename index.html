@@ -11,7 +11,6 @@
   <link rel="stylesheet" type="text/css" href="/css/scrollytellingStyle.css">
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Muli">
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Questrial">
-
   <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="/css/progress.min.css">
   <link rel="stylesheet" type="text/css" href="/css/style.css">
@@ -73,7 +72,7 @@
               <h1>Antibiotic Simulation</h1>
               <!-- <div id="main" width="800" height="400"> -->
               <div id="main" width="800" height="400">
-                <div id="display">
+                <div id="display" width="800" height="400">
                 <!-- Insert D3 Display element here -->
                 </div>
                 <div id="time">
@@ -101,18 +100,18 @@
                       <input type="range" min="2" max="15" value="3" step="1" id="treatmentDuration">
                       <p id="displayBacteriaColony">Size of Bacteria Colony: 1000</p>
                       <input type="range" min="500" max="10000" value="1000" step="100" id="bacteriaColony">
-                  </div>
-                  <div id="stats">
-                      <h3>Current Statistics:</h3>
-                      <p id="numberBacteriaEliminated">Number of Bacteria Eliminated: 0</p>
-                      <p id="numberBacteriaAlive">Number of Bacteria Alive: 1000</p>
-                    </div>
+                </div>
+                <div id="stats">
+                    <h3>Current Statistics:</h3>
+                    <p id="numberBacteriaEliminated">Number of Bacteria Eliminated: 0</p>
+                    <p id="numberBacteriaAlive">Number of Bacteria Alive: 1000</p>
+                </div>
               </div>
             </div>
 
             <div id="buttons">
-              <button onclick="drawBacteria()" type="button" class="btn btn-primary">Advance</button>
-              <button type="button" class="btn">Clear</button>
+              <button onclick="advance()" type="button" class="btn btn-primary">Advance</button>
+              <button onclick="removeAll()" type="button" class="btn">Clear</button>
             </div>
           </div>
         </div>

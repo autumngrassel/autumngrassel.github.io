@@ -13,16 +13,19 @@ $("#btn-play").click(function (d) {
 
 d3.select("#dosage").on("change", function() {
 	d3.select("#displayDosage").text("Dosage: " + this.value + "mg");
+	sliderUpdate();
 });
 
 d3.select("#treatmentDuration").on("change", function() {
 	d3.select("#displayTreatmentDuration").text("Treatment Duration: " + this.value + " days");
+	sliderUpdate();
 });
 
 d3.select("#bacteriaColony").on("change", function() {
 	d3.select("#displayBacteriaColony").text("Size of Bacteria Colony: " + this.value);
 	d3.select("#numberBacteriaAlive").text("Number of Bacteria Alive: " + this.value);
 	d3.select("#numberBacteriaEliminated").text("Number of Bacteria Eliminated: 0");
+	sliderUpdate();
 });
 
 
@@ -34,7 +37,6 @@ var svg = d3.select("#display").append("svg")
 
 svg.call(tip);
 
-console.log("made it " + svg);
 
 
 
@@ -74,33 +76,64 @@ var MouseOut = function(object) {
   .attr("width", 20)
   .attr("rx", 5);
 }
+
 for (var i = 0; i <= 200; i++) {
-		//Math.random(); // returns between 0 and 1
+	//Math.random(); // returns between 0 and 1
+	var x = Math.floor(Math.random() * (780)) + 0;// + xStart;
+	var y = Math.floor(Math.random() * (380)) + 10; // + yStart;
+	var rotate = Math.floor(Math.random() * 90);
+	if (Math.random() < 0.5) {
+		rotate = -1 * rotate;
+	}
+	svg.append("rect")         // attach a rectangle
+      .attr("class", "bacteria")
+	    .attr("x", x)          // position the left of the rectangle
+	    .attr("y", y)          // position the top of the rectangle
+	    .attr("height", 10)    // set the height
+	    .attr("width", 20)     // set the width
+	    .attr("rx", 5)         // set the x corner curve radius
+	    .attr("fill", "purple")
+      	.attr("opacity", 0.7)
+		.on("mouseover", MouseOver )
+    	.on("mouseout", MouseOut)
+		.attr("transform", "rotate(" + rotate + " " + (x + 10 ) + " " + (y + 5) + ")");
+      // set the y corner curve radius
+	    // if you don't have the rotation, they're all in the frame
+	    //.attr("transform", "rotate(" + rotate + ")");        // set the y corner curve radius
+
+}
+
+var numAntibiotic = 50; // change to dosage / 10 eventually
+
+
+function drawAntibiotics() {
+	for (var i = 0; i < numAntibiotic; i++) {
 		var x = Math.floor(Math.random() * (780)) + 0;// + xStart;
-		var y = Math.floor(Math.random() * (380)) + 10; // + yStart;
+		var y = Math.floor(Math.random() * (360)) + 10; // + yStart;
 		var rotate = Math.floor(Math.random() * 90);
 		if (Math.random() < 0.5) {
 			rotate = -1 * rotate;
 		}
-		svg.append("rect")         // attach a rectangle
-	      .attr("class", "bacteria")
-		    .attr("x", x)          // position the left of the rectangle
-		    .attr("y", y)          // position the top of the rectangle
-		    .attr("height", 10)    // set the height
-		    .attr("width", 20)     // set the width
-		    .attr("rx", 5)         // set the x corner curve radius
-		    .attr("fill", "purple")
-	      .attr("opacity", 0.7)
-
-				.on("mouseover", MouseOver )
-	    	.on("mouseout", MouseOut)
-
-		    .attr("transform", "rotate(" + rotate + " " + (x + 10 ) + " " + (y + 5) + ")");
-	      // set the y corner curve radius
-		    // if you don't have the rotation, they're all in the frame
-		    //.attr("transform", "rotate(" + rotate + ")");        // set the y corner curve radius
-
+		svg.append("svg:image")
+	  		.attr("xlink:href", "/images/medical.svg")
+	  		.attr("class", "antibiotic")
+	  		.attr("width", 25)
+	  		.attr("height", 30)
+			.attr("x", x)
+			.attr("y", y);
+			//.attr("transform", "rotate(" + rotate + " " + (x + 10 ) + " " + (y + 5) + ")");
 	}
+}
+
+drawAntibiotics();
+
+
+
+
+function removeAll() {
+	d3.select("svg").selectAll(".bacteria").remove();
+	d3.select("svg").selectAll(".antibiotic").remove();
+}
 
 function drawBacteria() {
 	// populate svg with bacteria placed randomly
@@ -120,15 +153,24 @@ function drawBacteria() {
 		    .attr("width", 20)     // set the width
 		    .attr("rx", 5)         // set the x corner curve radius
 		    .attr("fill", "purple")
-	      .attr("opacity", 0.7)
-
-				.on("mouseover", MouseOver )
+	      	.attr("opacity", 0.7)
+			.on("mouseover", MouseOver )
 	    	.on("mouseout", MouseOut)
-
-		    .attr("transform", "rotate(" + rotate + " " + (x + 10 ) + " " + (y + 5) + ")");
+	    	.attr("transform", "rotate(" + rotate + " " + (x + 10 ) + " " + (y + 5) + ")");
 	      // set the y corner curve radius
 		    // if you don't have the rotation, they're all in the frame
 		    //.attr("transform", "rotate(" + rotate + ")");        // set the y corner curve radius
 
 	}
+}
+
+function advance() {
+	sliderUpdate();
+}
+
+function sliderUpdate() {
+	removeAll();
+	drawBacteria();
+	//drawBact(); // get val from slider
+	drawAntibiotics(); // get val from slider
 }
