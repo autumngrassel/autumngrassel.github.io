@@ -4,35 +4,76 @@
 	<title>474 Final Project</title>
 	<script src="d3/d3.min.js" charset="utf-8"></script>
 	<script src="javascript/jquery-2.2.1.min.js"></script>
-	<script src="bootstrap/js/bootstrap.js"></script>
-	<script src="javascript/d3-tip.js"></script>
+	<script src="/bootstrap/js/bootstrap.js"></script>
+	<script src="/javascript/d3-tip.js"></script>
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
 	<link rel="stylesheet" type="text/css" href="/css/scrollytellingStyle.css">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Muli">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Questrial">
+
 </head>
 <body>
 	<div id='graphic'>
 	    <div id='sections'>
+	        <section id="titleSection" class="step">
+		        <div class="title">			
+		          	<h1 class="text-inf">How Antibiotic Resistance Happens
+		          	</h1> 
+		          	 <br/> 
+		          	 <br/> 
+		          	<p id="authors">Akash Puri, Madison Ikeda, Autumn Grassel</p>
+
+		        </div>
+	        </section>
+
+	        <section id="definitions" class="step">
+	        	<h2>Definitions</h2>
+	        	<p><strong>Antibiotic: </strong>A type of drug that kills or stops the growth of bacteria.</p>
+	        </section>
+
 	        <section class="step">
-	          <div class="title">			
-	          	<h1 class="text-info">How Antibiotic Resistance Happens <br/> 
-	          		<small>Akash Puri, Madison Ikeda, Autumn Grassel</small>
-	          	</h1> 
-	          </div>
+	        	<div id="second" class="row">
+	        		<h2>Antibiotic Resistance</h2>
+	        		<div class="col-lg-4 explanation">
+						<p>Antibiotic resistance is the ability of microbes such as bacteria, viruses, fungi and parasites
+							to resist the effect of antibiotics. 
+						</p>
+					</div>
+					<div class="col-lg-4 explanation">
+						<p>Bacteria evolve resistance and immunity to antibiotics through natural selection. 
+							Resistant bacteria evolve, reproduce and spread throughout your body which can potentially lead 
+							to more serious issues.
+						</p>
+					</div>
+					<div class="col-lg-4 explanation">
+						<p>Some microbes are harmless and even beneficial to health, but some can be harmful and cause disease
+							to humans, animals or plants. Each and every microbe has the potential to become drug-resistant organisms.
+						</p>
+					</div>
+				</div>
+	        </section>
+
+	        <section class="step">
+	        	<div id="resistanceDiagram">
+	        		<img src="http://www.cdc.gov/drugresistance/images/2-how-antibiotic-resistence-happens.jpg" alt="diagram" />
+	        		<br/>
+	        		<a href="http://www.cdc.gov/drugresistance/about.html">Source: Center for Disease Control</a>
+	        	</div>
 	        </section>
 
 	        <section class="step">
 	        	<div class="container">
 					<div id="first">
-
 						<br/>
 						<div>
+							<h1>Antibiotic Simulation</h1>
 							<div id="main" width="800" height="400">
 							</div>
 
 							<div id="sliders">
 								<div id="values">
-									<h3>Starting values:</h3>
+									<h3>Starting Values:</h3>
 							        <p id="displayDosage">Dosage: 500mg</p>
 							        <input type="range" min="100" max="1000" value="500" step="100" id="dosage">
 							        <p id="displayTreatmentDuration">Treatment Duration: 3 days</p>
@@ -55,38 +96,10 @@
 					</div>
 				</div>
 	        </section>
-
-	        <section class="step">
-		        <div id="second" class="row">
-					<h2>Explanatory Section</h2>
-					<div class="col-lg-4 explanation">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec ante odio. Nunc lobortis tristique risus, non molestie mi auctor eu.
-							 Suspendisse ut diam auctor, pharetra purus et, convallis augue. Praesent ut rhoncus nulla. Sed fringilla, nisl et posuere consectetur,
-							 orci dolor hendrerit massa, ac finibus metus elit in erat. Nam viverra aliquam purus non faucibus. Aliquam ac volutpat dolor. Phasellus
-							 tempor turpis vel eros fermentum blandit at quis tortor.
-
-						</p>
-					</div>
-					<div class="col-lg-4 explanation">
-						<p>Nullam dolor nisl, laoreet ac massa sit amet, dictum imperdiet sem. Fusce non sem ante. Curabitur diam mi, placerat ut tempor sit amet,
-							convallis in leo. Sed hendrerit faucibus velit eget condimentum. Donec aliquam arcu quis felis convallis euismod. Aliquam sodales bibendum
-							erat at euismod. Donec libero neque, laoreet non condimentum at, facilisis in tellus. Nullam commodo nibh vitae orci pretium, in imperdiet ante pellentesque.
-							Integer varius nisi et bibendum maximus.</p>
-					</div>
-					<div class="col-lg-4 explanation">
-						<p>Donec ac tincidunt tortor. Suspendisse feugiat nulla vitae porttitor malesuada. Duis aliquet imperdiet sollicitudin. Nam finibus at nulla a
-							 pulvinar. Integer maximus est non arcu interdum semper. Quisque nec leo pellentesque, malesuada quam eu, suscipit elit. Maecenas in est ut
-							 mauris porta lobortis eget vitae mauris. Duis quis blandit nulla. Vivamus pharetra elementum nunc in convallis. Phasellus a ligula ut lectus
-							  aliquet consectetur. Suspendisse vestibulum diam justo, ac molestie nulla sollicitudin nec. Vivamus in auctor dolor. Morbi augue lectus,
-								maximus ac ligula nec, pretium blandit risus. Vivamus sed tempus quam, eu elementum neque. Maecenas sit amet lectus nec odio elementum volutpat.
-						</p>
-					</div>
-				</div>
-	    	</section>
   		</div>
 		<script src="javascript/main.js" charset="utf-8"></script>
-		<script src="javascript/explanations.js" charset="utf-8"></script>
-		<script src="javascript/scroller.js" charset="utf-8"></script>
+		<script src="/javascript/explanations.js" charset="utf-8"></script>
+		<script src="/javascript/scroller.js" charset="utf-8"></script>
 	</div>
 </body>
 </html>

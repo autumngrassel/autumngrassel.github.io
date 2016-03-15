@@ -11,5 +11,8 @@ $(document).ready(function() {
     d3.selectAll('.step')
       .style('opacity',  function(d,i) { return i == index ? 1 : 0.1; });
 
+    d3.selectAll('.title')
+      .style('opacity',  function(d,i) { return i == index ? 1 : 0.0; });
+
   });
 });

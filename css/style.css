@@ -174,3 +174,12 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 /* End Slider Styles */
+
+
+h1, h2, h3 {
+  font-family: Questrial, sans-serif;
+}
+
+p {
+  font-family: Muli, sans-serif;
+}
