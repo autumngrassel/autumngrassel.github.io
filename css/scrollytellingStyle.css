@@ -55,7 +55,6 @@ img {
 
 #problem-statement {
 	font-size: 20px;
-	width: 50%;
 }
 
 .img-circle {
@@ -63,7 +62,11 @@ img {
 }
 
 .col-problem {
-	display: inline;
+	
 	float: left;
-
+  margin: 0 1.5%;
+  width: 30%;
 }
+
+#basic-info {
+	clear: left;
