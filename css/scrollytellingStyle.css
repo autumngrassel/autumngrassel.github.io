@@ -12,6 +12,7 @@ img {
 
 .step {
  	margin-bottom: 250px;
+ 	margin-top: 50px;
  	/*border: 1px solid green;*/
 }
 
@@ -62,10 +63,9 @@ img {
 }
 
 .col-problem {
-	
 	float: left;
-  margin: 0 1.5%;
-  width: 30%;
+  	margin: 0 1.5%;
+  	width: 30%;
 }
 
 #basic-info {
