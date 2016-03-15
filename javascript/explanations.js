@@ -14,7 +14,7 @@ $(document).ready(function() {
     d3.selectAll('.title')
       .style('opacity',  function(d,i) { return i == index ? 1 : 0.0; });
 
-    d3.selectAll('#definitions')
+    d3.selectAll('#definitionsHack')
       .style('opacity',  function(d,i) { return 0.0; });
 
   });
