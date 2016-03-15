@@ -11,12 +11,10 @@ img {
 }
 
 .step {
- 	padding-bottom: 200px;
+ 	padding-bottom: 100px;
  	/*margin-bottom: 250px;*/
- 	margin-top: 50px;
  	/*border: 1px solid green;*/
 }
-
 #basic-info {
 	z-index: 90;
 }
@@ -63,11 +61,12 @@ img {
 	margin-top: 0;
 	padding-left: 5%;
 	padding-right: 5%;
+	padding-top: 50px;
+	margin-bottom: 150px;
 	text-align: center;
 	margin: 0 auto;
 	display: block;
-	padding-top: 50px;
-	margin-bottom: 150px;
+	padding: bottom 150px;
 }
 
 #problem-statement {
@@ -86,3 +85,5 @@ img {
 
 #basic-info {
 	clear: left;
+	padding-top: 100px;
+}
