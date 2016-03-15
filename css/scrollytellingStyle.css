@@ -10,13 +10,12 @@ img {
 	width: 100%;
 }
 
-.step {
+/*.step {
  	padding-bottom: 200px;
- 	/*margin-bottom: 250px;*/
+ 	margin-bottom: 250px;
  	margin-top: 50px;
- 	/*border: 1px solid green;*/
-}
-
+ 	/*border: 1px solid green;
+}*/
 #basic-info {
 	z-index: 90;
 }
