@@ -82,3 +82,7 @@ img {
 	clear: left;
 	margin-top: 100px;
 }
+
+.col-lg-4 explanation { 
+	font-size: 16px;
+}
