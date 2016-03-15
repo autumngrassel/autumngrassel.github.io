@@ -1,8 +1,15 @@
 // Initialize tooltip
-tip = d3.tip()
+var tip = d3.tip()
   .attr('class', 'tooltip')
   .html(function(d) {
             return "<div><h5>Cell X92</h5><p>Health Level: 82%</p><p>Days Alive: 13</p></div>"});
+
+var timeBar = progressJs("#timebar"); //start progress-bar for element id='targetElement'
+timeBar.start();
+
+$("#btn-play").click(function (d) {
+	timeBar.increase(1);
+});
 
 d3.select("#dosage").on("change", function() {
 	d3.select("#displayDosage").text("Dosage: " + this.value + "mg");
@@ -19,7 +26,7 @@ d3.select("#bacteriaColony").on("change", function() {
 });
 
 
-var svg = d3.select("#main").append("svg")
+var svg = d3.select("#display").append("svg")
 	.attr("width", 800)
 	.attr("height", 400)
 	.attr("id", "svg_main")
