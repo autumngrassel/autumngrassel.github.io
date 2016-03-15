@@ -7,17 +7,23 @@ var tip = d3.tip()
 var timeBar = progressJs("#timebar"); //start progress-bar for element id='targetElement'
 timeBar.start();
 
+var dosage = 500;
+var duration = 3;
+var colonySize = 1000;
+
 $("#btn-play").click(function (d) {
 	timeBar.increase(1);
 });
 
 d3.select("#dosage").on("change", function() {
 	d3.select("#displayDosage").text("Dosage: " + this.value + "mg");
+	dosage = this.value;
 	sliderUpdate();
 });
 
 d3.select("#treatmentDuration").on("change", function() {
 	d3.select("#displayTreatmentDuration").text("Treatment Duration: " + this.value + " days");
+	duration = this.value;
 	sliderUpdate();
 });
 
@@ -25,6 +31,7 @@ d3.select("#bacteriaColony").on("change", function() {
 	d3.select("#displayBacteriaColony").text("Size of Bacteria Colony: " + this.value);
 	d3.select("#numberBacteriaAlive").text("Number of Bacteria Alive: " + this.value);
 	d3.select("#numberBacteriaEliminated").text("Number of Bacteria Eliminated: 0");
+	colonySize = this.value;
 	sliderUpdate();
 });
 
@@ -107,7 +114,7 @@ var numAntibiotic = 50; // change to dosage / 10 eventually
 
 
 function drawAntibiotics() {
-	for (var i = 0; i < numAntibiotic; i++) {
+	for (var i = 0; i < dosage / 10; i++) {
 		var x = Math.floor(Math.random() * (780)) + 0;// + xStart;
 		var y = Math.floor(Math.random() * (360)) + 10; // + yStart;
 		var rotate = Math.floor(Math.random() * 90);
@@ -137,7 +144,7 @@ function removeAll() {
 
 function drawBacteria() {
 	// populate svg with bacteria placed randomly
-	for (var i = 0; i <= 200; i++) {
+	for (var i = 0; i <= colonySize / 5; i++) {
 		//Math.random(); // returns between 0 and 1
 		var x = Math.floor(Math.random() * (780)) + 0;// + xStart;
 		var y = Math.floor(Math.random() * (380)) + 10; // + yStart;
