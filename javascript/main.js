@@ -7,19 +7,34 @@ var tip = d3.tip()
 var timeBar = progressJs("#timebar"); //start progress-bar for element id='targetElement'
 timeBar.start();
 
+
 var dosage = 500;
-var duration = 3;
+var duration = 5;
 var colonySize = 1000;
+
 
 $("#btn-play").click(function (d) {
 	timeBar.increase(1);
 });
 
-d3.select("#dosage").on("change", function() {
+d3.select("#dosage").on("oninput", function() {
 	d3.select("#displayDosage").text("Dosage: " + this.value + "mg");
 	dosage = this.value;
 	sliderUpdate();
 });
+
+function onInputDosage(value) {
+	d3.select("#displayDosage").text("Dosage: " + value + "mg");
+	dosage = value;
+	sliderUpdate();
+
+}
+
+function onInputDuration(value) {
+	d3.select("#displayTreatmentDuration").text("Treatment Duration: " + value + " days");
+	duration = value;
+	sliderUpdate();
+}
 
 d3.select("#treatmentDuration").on("change", function() {
 	d3.select("#displayTreatmentDuration").text("Treatment Duration: " + this.value + " days");
@@ -35,6 +50,13 @@ d3.select("#bacteriaColony").on("change", function() {
 	sliderUpdate();
 });
 
+function onInputColonySize(value) {
+	d3.select("#displayBacteriaColony").text("Size of Bacteria Colony: " + value);
+	d3.select("#numberBacteriaAlive").text("Number of Bacteria Alive: " + value);
+	d3.select("#numberBacteriaEliminated").text("Number of Bacteria Eliminated: 0");
+	colonySize = value;
+	sliderUpdate();
+}
 
 var svg = d3.select("#display").append("svg")
 	.attr("width", 800)
