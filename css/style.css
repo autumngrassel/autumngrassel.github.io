@@ -118,8 +118,9 @@
 }
 
 .bacteria:hover {
-	stroke : black;
-	stroke-width: 3;
+	/*stroke : black;
+	stroke-width: 3;*/
+  opacity: 1;
 }
 
 /* Slider Styles -- I stole these from the web */

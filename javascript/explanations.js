@@ -12,7 +12,7 @@ $(document).ready(function() {
       .style('opacity',  function(d,i) { return i == index ? 1 : 0.1; });
 
     d3.selectAll('.title')
-      .style('opacity',  function(d,i) { return i == index ? 1 : 0.5; });
+      .style('opacity',  function(d,i) { return i == index ? 1 : 0.0; });
 
     d3.selectAll('#definitionsHack')
       .style('opacity',  function(d,i) { return 0.0; });
