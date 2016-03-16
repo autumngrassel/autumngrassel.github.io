@@ -104,12 +104,13 @@ img {
 }
 
 #accomplishes {
-	background-color: #424242;
-	opacity: 0.4;
-	margin-right: 200px;
-	width:250px;
+	background-color: #333;
+	opacity: 0.3;
+	margin-left: 200px;
+	width:500px;
 	height:400px;
 	color: white;
+	padding: 10px;
 }
 
 #inner-accomplishments {
