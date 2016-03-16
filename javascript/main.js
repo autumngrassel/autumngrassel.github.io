@@ -1,8 +1,10 @@
 // Initialize tooltip
-var tip = d3.tip()
-  .attr('class', 'tooltip')
-  .html(function(d) {
-            return "<div><h5>Cell X92</h5><p>Health Level: 82%</p><p>Days Alive: 13</p></div>"});
+var bacteriaTip = d3.tip()
+  	.attr('class', 'tooltip')
+  	.html(function(d) {
+        return "<div><p>Resistance: " + d.attr("resistanceLevel") + "</p>" +
+        		"<p>Current Health: " + d.attr("health") + "</p>" +
+        		"<p>Hours Alive: " + d.attr("survivalTime") + "</p></div>"});
 
 var timeBar = progressJs("#timebar"); //start progress-bar for element id='targetElement'
 timeBar.start();
@@ -64,10 +66,7 @@ var svg = d3.select("#display").append("svg")
 	.attr("id", "svg_main")
 	.attr("border", 1);
 
-svg.call(tip);
-
-
-
+svg.call(bacteriaTip);
 
 var width = parseInt(d3.select("#svg_main").style("width"), 10);
 var xStart = parseInt(d3.select("#svg_main").style("x"), 10);
@@ -86,24 +85,37 @@ var borderPath = svg.append("rect")
 	.style("stroke-width", 1);
 
 //  Function triggered when a cell is hovered over
-var MouseOver = function() {
-  console.log(this);
+var MouseOverBacteria = function() {
 	var rect = d3.select(this);
 	rect.transition().duration(400)
 		.attr("height", 20)
-    .attr("width", 40)
-    .attr("rx", 10);
-  tip.show(rect);
+    	.attr("width", 40)
+    	.attr("rx", 10);
+  bacteriaTip.show(rect);
 }
 
 //  Function triggered when a cell is mousedout
-var MouseOut = function(object) {
-	tip.hide();
+var MouseOutBacteria = function() {
+	bacteriaTip.hide();
 	var rect = d3.select(this);
 	rect.transition().duration(400)
-  .attr("height", 10)
-  .attr("width", 20)
-  .attr("rx", 5);
+	  .attr("height", 10)
+	  .attr("width", 20)
+	  .attr("rx", 5);
+}
+
+var MouseOverAntibiotic = function() {
+	var antibiotic = d3.select(this);
+	antibiotic.transition().duration(400)
+		.attr("height", 45)
+    	.attr("width", 40);
+}
+
+var MouseOutAntibiotic = function() {
+	var antibiotic = d3.select(this);
+	antibiotic.transition().duration(400)
+		.attr("height", 30)
+    	.attr("width", 25);
 }
 
 var numAntibiotic = 50; // change to dosage / 10 eventually
@@ -124,13 +136,11 @@ function drawAntibiotics() {
 	  		.attr("height", 30)
 			.attr("x", x)
 			.attr("y", y)
+			.on("mouseover", MouseOverAntibiotic)
+	    	.on("mouseout", MouseOutAntibiotic)
 			.attr("direction", direction);
 	}
 }
-
-
-
-
 
 
 function removeAll() {
@@ -143,9 +153,10 @@ function drawBacteria() {
 	for (var i = 0; i <= colonySize / 5; i++) {
 		//Math.random(); // returns between 0 and 1
 		var direction = parseInt(Math.floor(Math.random() * 4) + 1); // direction
-		var resistant = false;
+		var resistance = 0;
 		if (Math.random() < 0.02) { // 2% of bacteria are resistant
-			resistant = true;
+			resistance = Math.ceil(Math.random() * 3);
+			console.log(resistance);
 		}
 		var x = Math.floor(Math.random() * (780)) + 0; 	
 		var y = Math.floor(Math.random() * (380)) + 10;
@@ -153,6 +164,7 @@ function drawBacteria() {
 		if (Math.random() < 0.5) {
 			rotate = -1 * rotate;
 		}
+		var startingHealth = Math.round(15 + Math.random() * 10);
 		var bact = svg.append("rect")         // attach a rectangle
 	      	.attr("class", "bacteria")
 		    .attr("x", x)          // position the left of the rectangle
@@ -160,27 +172,46 @@ function drawBacteria() {
 		    .attr("height", 10)    // set the height
 		    .attr("width", 20)     // set the width
 		    .attr("rx", 5)         // set the x corner curve radius
-		    .attr("fill", "purple")
-		    .attr("health", 20)
-		    .attr("resistance", resistant ? 0 : 1) // 1 for resistance exists, 0 if not resistant
+		    .attr("fill", "#9e9ac8")
+		    .attr("health", startingHealth)
+		    .attr("resistance", resistance) // 1 for resistance exists, 0 if not resistant
+		    .attr("resistanceLevel", function (x) {
+		    	if (resistance == 0) {
+		    		return "None";
+		    	} else if (resistance == 1) {
+		    		return "Low";
+		    	} else if (resistance == 2) {
+		    		return "Medium";
+		    	} else {
+		    		return "High";
+		    	}
+		    })
 		    .attr("direction", direction)
 	      	.attr("opacity", 0.7)
+	      	.attr("survivalTime", 0)
 	      	.attr("angle", rotate)
-			.on("mouseover", MouseOver )
-	    	.on("mouseout", MouseOut)
+			.on("mouseover", MouseOverBacteria)
+	    	.on("mouseout", MouseOutBacteria)
 	    	.attr("transform", "rotate(" + rotate + " " + (x + 10 ) + " " + (y + 5) + ")")
 	    	;
 	      // set the y corner curve radius
 		    // if you don't have the rotation, they're all in the frame
 		    //.attr("transform", "rotate(" + rotate + ")");        // set the y corner curve radius
 
-		if (resistant) {
-			bact.attr("fill", "#33ff33")
+		if (resistance > 0) {
+			bact.attr("fill", function (d) {
+				if (resistance == 1) {
+					return "#A1d99B";
+				} else if (resistance == 2) {
+					return "#31A354";
+				} else {
+					return "#1E6333";
+				}
+			})
 				.attr("opacity", 0.7);
 		}
 		// console.log(bact.attr("x"));
 		var rotateString = "" + getRotateString(bact.attr("x"), bact.attr("y"), bact.attr("angle"));
-		console.log(rotateString);
 		bact.attr("transform", rotateString);
 
 	}
@@ -287,7 +318,6 @@ function getRotateStr(b) {
 	var x = parseInt(b.attr("x"));
 	var y = parseInt(b.attr("y"));
 	var angle = parseInt(b.attr("angle"));
-	console.log("x: " + x + "   y: " + y + "   ang: " + angle);
 	return getRotateString(x, y, angle);
 }
 
