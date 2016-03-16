@@ -30,10 +30,7 @@ img {
 }
 
 .title {
-	/*background-image: url("../images/bacteria.jpg");*/
-	/*background-image: url("http://localhost/autumngrassel.github.io/images/background.jpg");*/
 	height: 700px;
-	/*position: fixed;*/
 	top: 0;
 	margin-top: -20px;
 	margin-bottom: 20px;
@@ -111,9 +108,9 @@ img {
 }
 
 .inner-accomplishments {
-	background-color: #424242;
-	margin-left: 15%;
-	width:450px;
+	background-color: #d3d3d3;
+	margin-left: 200px;
+	width:500px;
 	height:400px;
 	color: white;
 	padding: 20px;

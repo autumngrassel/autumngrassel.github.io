@@ -106,40 +106,14 @@ var MouseOut = function(object) {
   .attr("rx", 5);
 }
 
-for (var i = 0; i <= 200; i++) {
-	//Math.random(); // returns between 0 and 1
-	var x = Math.floor(Math.random() * (780)) + 0;// + xStart;
-	var y = Math.floor(Math.random() * (380)) + 10; // + yStart;
-	var rotate = Math.floor(Math.random() * 90);
-	if (Math.random() < 0.5) {
-		rotate = -1 * rotate;
-	}
-	svg.append("rect")         // attach a rectangle
-      .attr("class", "bacteria")
-	    .attr("x", x)          // position the left of the rectangle
-	    .attr("y", y)          // position the top of the rectangle
-	    .attr("height", 10)    // set the height
-	    .attr("width", 20)     // set the width
-	    .attr("rx", 5)         // set the x corner curve radius
-	    .attr("fill", "purple")
-      	.attr("opacity", 0.7)
-		.on("mouseover", MouseOver )
-    	.on("mouseout", MouseOut)
-		.attr("transform", "rotate(" + rotate + " " + (x + 10 ) + " " + (y + 5) + ")");
-      // set the y corner curve radius
-	    // if you don't have the rotation, they're all in the frame
-	    //.attr("transform", "rotate(" + rotate + ")");        // set the y corner curve radius
-
-}
-
 var numAntibiotic = 50; // change to dosage / 10 eventually
-
 
 function drawAntibiotics() {
 	for (var i = 0; i < dosage / 10; i++) {
 		var x = Math.floor(Math.random() * (780)) + 0;// + xStart;
 		var y = Math.floor(Math.random() * (360)) + 10; // + yStart;
 		var rotate = Math.floor(Math.random() * 90);
+		var direction = parseInt(Math.floor(Math.random() * 4) + 1); // direction
 		if (Math.random() < 0.5) {
 			rotate = -1 * rotate;
 		}
@@ -149,12 +123,12 @@ function drawAntibiotics() {
 	  		.attr("width", 25)
 	  		.attr("height", 30)
 			.attr("x", x)
-			.attr("y", y);
-			//.attr("transform", "rotate(" + rotate + " " + (x + 10 ) + " " + (y + 5) + ")");
+			.attr("y", y)
+			.attr("direction", direction);
 	}
 }
 
-drawAntibiotics();
+
 
 
 
@@ -168,38 +142,183 @@ function drawBacteria() {
 	// populate svg with bacteria placed randomly
 	for (var i = 0; i <= colonySize / 5; i++) {
 		//Math.random(); // returns between 0 and 1
-		var x = Math.floor(Math.random() * (780)) + 0;// + xStart;
-		var y = Math.floor(Math.random() * (380)) + 10; // + yStart;
+		var direction = parseInt(Math.floor(Math.random() * 4) + 1); // direction
+		var resistant = false;
+		if (Math.random() < 0.02) { // 2% of bacteria are resistant
+			resistant = true;
+		}
+		var x = Math.floor(Math.random() * (780)) + 0; 	
+		var y = Math.floor(Math.random() * (380)) + 10;
 		var rotate = Math.floor(Math.random() * 90);
 		if (Math.random() < 0.5) {
 			rotate = -1 * rotate;
 		}
-		svg.append("rect")         // attach a rectangle
-	      .attr("class", "bacteria")
+		var bact = svg.append("rect")         // attach a rectangle
+	      	.attr("class", "bacteria")
 		    .attr("x", x)          // position the left of the rectangle
 		    .attr("y", y)          // position the top of the rectangle
 		    .attr("height", 10)    // set the height
 		    .attr("width", 20)     // set the width
 		    .attr("rx", 5)         // set the x corner curve radius
 		    .attr("fill", "purple")
+		    .attr("health", 20)
+		    .attr("resistance", resistant ? 0 : 1) // 1 for resistance exists, 0 if not resistant
+		    .attr("direction", direction)
 	      	.attr("opacity", 0.7)
+	      	.attr("angle", rotate)
 			.on("mouseover", MouseOver )
 	    	.on("mouseout", MouseOut)
-	    	.attr("transform", "rotate(" + rotate + " " + (x + 10 ) + " " + (y + 5) + ")");
+	    	.attr("transform", "rotate(" + rotate + " " + (x + 10 ) + " " + (y + 5) + ")")
+	    	;
 	      // set the y corner curve radius
 		    // if you don't have the rotation, they're all in the frame
 		    //.attr("transform", "rotate(" + rotate + ")");        // set the y corner curve radius
 
+		if (resistant) {
+			bact.attr("fill", "#33ff33")
+				.attr("opacity", 0.7);
+		}
+		// console.log(bact.attr("x"));
+		var rotateString = "" + getRotateString(bact.attr("x"), bact.attr("y"), bact.attr("angle"));
+		console.log(rotateString);
+		bact.attr("transform", rotateString);
+
 	}
 }
 
+function moveBacteria() {
+	var duration = 1000;
+	
+	d3.select("svg").selectAll(".bacteria")
+		.transition()
+		.attr("x", function() {
+			var thisBact = d3.select(this);
+			var oldX = parseInt(thisBact.attr("x"));
+			var newX = parseInt(thisBact.attr("x")) + (10 * getX(parseInt(thisBact.attr("direction"))));
+			if (newX > 800) {
+				thisBact.attr("bigXChange", true);
+				newX -= 800;
+			} else if (newX < 0) {
+				thisBact.attr("bigXChange", true);
+				newX += 800;
+			} 
+			return newX;
+		})
+		.attr("y", function() {
+			var thisBact = d3.select(this);
+			var oldY = parseInt(thisBact.attr("y"));
+			var newY = parseInt(thisBact.attr("y")) + (10 * getY(parseInt(thisBact.attr("direction"))));
+			
+			if (newY > 400) {
+				newY -= 400;
+			} else if (newY < 0) {
+				newY += 400
+			} 
+			return newY;
+		})
+		.attr("transform", function() {
+			var thisBact = d3.select(this);
+	    	return getRotateString(thisBact.attr("x"), thisBact.attr("y"), thisBact.attr("angle"));
+	    })
+	    .duration(1200)
+	    // .attr("display", function() {
+	    // 	var thisBact = d3.select(this);
+	    // 	console.log(thisBact.attr("bigXChange"));
+	    // 	if (thisBact.attr("bigXChange") == "true" || thisBact.attr("bigYChange") == "true") {
+	    // 		return "none";
+
+	    // 	} else {
+	    // 		return "visible";
+	    // 	}
+	    // 	// var cX = parseInt(thisBact.attr("changeX"));
+	    // 	// var cY = parseInt(thisBact.attr("changeY"));
+	    // 	// if (Math.abs(cX) > 50 || Math.abs(cY) > 50) {
+	    // 	// 	console.log(Math.abs(cX) + " " + Math.abs(cY));
+	    // 	// 	return "none";
+	    // 	// } else {
+	    // 	// 	return "visisble";
+	    // 	// }	
+	    // })
+	    
+	    ;
+}
+
+function moveAntibiotics() {
+	d3.select("svg").selectAll(".antibiotic")
+		.transition()
+		.attr("x", function() {
+			var thisBact = d3.select(this);
+			var oldX = parseInt(thisBact.attr("x"));
+			var newX = parseInt(thisBact.attr("x")) + (10 * getX(parseInt(thisBact.attr("direction"))));
+			if (newX > 800) {
+				thisBact.attr("bigXChange", true);
+				newX -= 800;
+			} else if (newX < 0) {
+				thisBact.attr("bigXChange", true);
+				newX += 800;
+			} 
+			return newX;
+		})
+		.attr("y", function() {
+			var thisBact = d3.select(this);
+			var oldY = parseInt(thisBact.attr("y"));
+			var newY = parseInt(thisBact.attr("y")) + (10 * getY(parseInt(thisBact.attr("direction"))));
+			
+			if (newY > 400) {
+				newY -= 400;
+			} else if (newY < 0) {
+				newY += 400
+			} 
+			return newY;
+		})
+	    .duration(1200)
+	    .ease("linear");
+}
+
+function getRotateString(x, y, angle) {
+		//console.log("x: " + x + "   y: " + y + "   ang: " + angle);
+
+	return "rotate(" + parseInt(angle) + " " + (parseInt(x) + 10) + " " + (parseInt(y) + 5) + ")";
+}
+
+function getRotateStr(b) {
+	b
+	console.log(b);
+	var x = parseInt(b.attr("x"));
+	var y = parseInt(b.attr("y"));
+	var angle = parseInt(b.attr("angle"));
+	console.log("x: " + x + "   y: " + y + "   ang: " + angle);
+	return getRotateString(x, y, angle);
+}
+
+function getX(quad) {
+	if (quad === 1 || quad === 4) {
+		return 1;
+	} else {
+		return -1;
+	}
+
+}
+
+function getY(quad) {
+	if (quad === 1 || quad === 2) {
+		return 1;
+	} else {
+		return -1;
+	}
+}
+
+
 function advance() {
-	sliderUpdate();
+	moveBacteria();
+	moveAntibiotics();
 }
 
 function sliderUpdate() {
 	removeAll();
-	drawBacteria();
-	//drawBact(); // get val from slider
+	drawBacteria();		// get val from slider
 	drawAntibiotics(); // get val from slider
 }
+
+drawBacteria();
+drawAntibiotics();
