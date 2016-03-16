@@ -21,7 +21,7 @@ img {
 }
 
 #titleSection {
-	background-image: url("http://localhost/autumngrassel.github.io/images/background.jpg");
+	background-image: url("/images/background.jpg");
 	background-position: center top;
 	background-size: cover;
 	height: 760px;
@@ -181,6 +181,8 @@ img {
 
 .keyStuff {
 	display: inline-block;
+	vertical-align: middle;
+	padding-left: 8px;
 }
 
 .key-height {

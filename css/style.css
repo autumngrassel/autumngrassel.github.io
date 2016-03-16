@@ -24,8 +24,15 @@
   min-width: 800px;
 }
 
+#current_progress {
+    width: 80%;
+    background-color: rgb(48, 113, 169);
+    height: 100%;
+}
+
 #time .btn {
   color: black;
+  float: left;
   font-size: 1.5em;
   margin-right: 5px;
   margin-top: 10px;
@@ -38,6 +45,7 @@
 
 .progressjs-theme-blue .progressjs-inner {
   transition: all 0.3s ease-out;
+  float:left;
   height: 40px;
   border-left: 2px solid black;
   border-top: 2px solid black;
@@ -48,7 +56,7 @@
   margin-top: 12px;
   height: 40px;
   width: 550px;
-  float: right;
+  float: left;
   color: white;
   border: 2px solid black;
 }

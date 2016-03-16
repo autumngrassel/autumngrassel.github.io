@@ -6,10 +6,6 @@ var bacteriaTip = d3.tip()
         		"<p>Current Health: " + d.attr("health") + "</p>" +
         		"<p>Hours Alive: " + d.attr("survivalTime") + "</p></div>"});
 
-var timeBar = progressJs("#timebar"); //start progress-bar for element id='targetElement'
-timeBar.start();
-
-
 var dosage = 500;
 var duration = 5;
 var colonySize = 1000;
@@ -129,8 +125,8 @@ function drawAntibiotics() {
 		if (Math.random() < 0.5) {
 			rotate = -1 * rotate;
 		}
-		svg.append("svg:image")
-	  		.attr("xlink:href", "http://localhost/autumngrassel.github.io/images/medical.svg")
+		d3.select("#svg_main").append("svg:image")
+	  		.attr("xlink:href", "/images/medical.svg")
 	  		.attr("class", "antibiotic")
 	  		.attr("width", 25)
 	  		.attr("height", 30)
@@ -144,8 +140,9 @@ function drawAntibiotics() {
 
 
 function removeAll() {
-	d3.select("svg").selectAll(".bacteria").remove();
-	d3.select("svg").selectAll(".antibiotic").remove();
+	console.log("tried to remove");
+	d3.selectAll(".bacteria").remove();
+	d3.selectAll(".antibiotic").remove();
 }
 
 function drawBacteria() {
@@ -156,7 +153,7 @@ function drawBacteria() {
 		var resistance = 0;
 		if (Math.random() < 0.02) { // 2% of bacteria are resistant
 			resistance = Math.ceil(Math.random() * 3);
-			console.log(resistance);
+			//console.log(resistance);
 		}
 		var x = Math.floor(Math.random() * (780)) + 0; 	
 		var y = Math.floor(Math.random() * (380)) + 10;
@@ -165,7 +162,7 @@ function drawBacteria() {
 			rotate = -1 * rotate;
 		}
 		var startingHealth = Math.round(15 + Math.random() * 10);
-		var bact = svg.append("rect")         // attach a rectangle
+		var bact = d3.select("#svg_main").append("rect")         // attach a rectangle
 	      	.attr("class", "bacteria")
 		    .attr("x", x)          // position the left of the rectangle
 		    .attr("y", y)          // position the top of the rectangle
@@ -220,7 +217,7 @@ function drawBacteria() {
 function moveBacteria() {
 	var duration = 1000;
 	
-	d3.select("svg").selectAll(".bacteria")
+	d3.select("#svg_main").selectAll(".bacteria")
 		.transition()
 		.attr("x", function() {
 			var thisBact = d3.select(this);
@@ -275,7 +272,7 @@ function moveBacteria() {
 }
 
 function moveAntibiotics() {
-	d3.select("svg").selectAll(".antibiotic")
+	d3.select("#svg_main").selectAll(".antibiotic")
 		.transition()
 		.attr("x", function() {
 			var thisBact = d3.select(this);
@@ -313,8 +310,6 @@ function getRotateString(x, y, angle) {
 }
 
 function getRotateStr(b) {
-	b
-	console.log(b);
 	var x = parseInt(b.attr("x"));
 	var y = parseInt(b.attr("y"));
 	var angle = parseInt(b.attr("angle"));
@@ -340,6 +335,7 @@ function getY(quad) {
 
 
 function advance() {
+	console.log("advanced");
 	moveBacteria();
 	moveAntibiotics();
 }
