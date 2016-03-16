@@ -89,7 +89,10 @@ img {
 }
 
 #million {
-	font-size: 40px;
+	font-size: 100px;
 	color: #0099CC;
-	margin: 0 auto;	
+}
+
+#money {
+	text-align: center;
 }
