@@ -104,17 +104,22 @@ img {
 }
 
 .accomplishes {
+	/*background-color: #424242;
+	margin-left: 200px;
+	width:500px;
+	height:400px;
+	color: white;
+	padding: 10px;*/
+}
+
+
+.inner-accomplishments {
 	background-color: #424242;
 	margin-left: 200px;
 	width:500px;
 	height:400px;
 	color: white;
 	padding: 10px;
-}
-
-
-.inner-accomplishments {
-	padding: 30px;
 }
 
 .small-accomplishes {
