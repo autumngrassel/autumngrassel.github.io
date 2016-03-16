@@ -175,6 +175,19 @@ img {
 	padding: 40px;
 }
 
-#numberBacteriaEliminated, #numberBacteriaAlive, #values.p {
+#numberBacteriaEliminated, #numberBacteriaAlive, #values.p, .keyStuff {
 	font-size: 14px;
+}
+
+.keyStuff {
+	display: inline-block;
+}
+
+.key-height {
+	height: 35px;
+}
+
+#starting-values {
+	margin-top: 0px;
+	margin-bottom: 10px;
 }
