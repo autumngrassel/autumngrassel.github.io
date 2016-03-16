@@ -86,7 +86,6 @@ img {
 #basic-info {
 	clear: left;
 	margin-top: 100px;
-	height: 400px;
 }
 
 #money {
@@ -101,4 +100,5 @@ img {
 
 .second {
 	vertical-align: middle;
+	height: 400px;
 }
