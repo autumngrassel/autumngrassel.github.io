@@ -111,10 +111,8 @@ img {
 	height:400px;
 	color: white;
 	padding: 10px;
-	z-index: -1;
 }
 
 #inner-accomplishments {
 	padding: 30px;
-	z-index: 10;
 }

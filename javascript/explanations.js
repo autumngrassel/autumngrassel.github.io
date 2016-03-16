@@ -13,14 +13,5 @@ $(document).ready(function() {
 
     d3.selectAll('.title')
       .style('opacity',  function(d,i) { return i == index ? 1 : 0.5; });
-
-    d3.selectAll('#definitionsHack')
-      .style('opacity',  function(d,i) { return 0.0; });
-
-    d3.selectAll('#accomplishes')
-      .style('opacity',  function(d,i) { return i == index ? 0.3 : 0.5; });
-
-    d3.selectAll('#inner-accomplishments')
-      .style('opacity',  function(d,i) { return 1; });
   });
 });
