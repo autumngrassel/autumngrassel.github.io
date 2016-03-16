@@ -144,3 +144,7 @@ img {
 #small {
 	float: left;
 }
+
+#visualization {
+	clear: left;
+}
