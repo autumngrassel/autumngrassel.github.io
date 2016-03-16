@@ -102,3 +102,11 @@ img {
 	vertical-align: middle;
 	height: 400px;
 }
+
+#accomplishes {
+	background-color: #424242;
+	opacity: 0.4;
+	margin-right: 200px;
+	width:250px;
+	height:400px;
+}
