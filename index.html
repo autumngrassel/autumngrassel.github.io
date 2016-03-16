@@ -2,18 +2,18 @@
 <html>
 <head>
 	<title>474 Final Project</title>
-  <script src="/d3/d3.min.js" charset="utf-8"></script>
-  <script src="/javascript/jquery-2.2.1.min.js"></script>
-  <script src="/bootstrap/js/bootstrap.js"></script>
-  <script src="/javascript/d3-tip.js"></script>
-  <script src="/javascript/progress.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="/css/scrollytellingStyle.css">
+  <script src="http://localhost/autumngrassel.github.io/d3/d3.min.js" charset="utf-8"></script>
+  <script src="http://localhost/autumngrassel.github.io/javascript/jquery-2.2.1.min.js"></script>
+  <script src="http://localhost/autumngrassel.github.io/bootstrap/js/bootstrap.js"></script>
+  <script src="http://localhost/autumngrassel.github.io/javascript/d3-tip.js"></script>
+  <script src="http://localhost/autumngrassel.github.io/javascript/progress.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://localhost/autumngrassel.github.io/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="http://localhost/autumngrassel.github.io/css/scrollytellingStyle.css">
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Muli">
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Questrial">
-  <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="/css/progress.min.css">
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="stylesheet" type="text/css" href="http://localhost/autumngrassel.github.io/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="http://localhost/autumngrassel.github.io/css/progress.min.css">
+  <link rel="stylesheet" type="text/css" href="http://localhost/autumngrassel.github.io/css/style.css">
 </head>
 <body>
   <div id='graphic'>
@@ -28,10 +28,6 @@
             </div>
           </section>
 
-	      <!--   <section id="definitionsHack" class="step">
-	        	<p>secret hack</p>
-	        </section> -->
-
 	        <section id="problem" class="step">
             <div class="col-problem">
               <img class="img-circle" src="images/redBacteria.jpg"/>
@@ -42,12 +38,13 @@
       					designed to kill them this threatens to return us to the time when
       					simple infections often turned fatal. The longer drugs are being used, the more 
                 bacteria are becoming infectious because they can adapt to the antibiotics that are designed 
-                to kill them. This leads to less effective drugs and more dangerous bacteria. Each year
+                to kill them. This leads to less effective drugs and more dangerous bacteria. In addition,
+                antibiotics are incorrectly presribed, 50% of the time in situations where they are not needed
+                or there is an incorrect dosage or duration. Each year
                 in the United States, 2 million people become infected with bacteria which are 
                 resistant to antibiotics and 23,000 people die each year from these infections.</p>
             </div>
             <div class="col-problem">
-
               <img class="img-circle" src="images/purpleBacteria.jpg"/>
             </div>
 	        </section>
@@ -59,27 +56,40 @@
               <br/>
               <p>to antibiotic resistant solutions!</p> 
           </section>
+
+          <section id="strep-vis" class="step">
+            <h2 id ="oneInEight">1 in 8 People Die from Drug-Resistant Strep Throat Infections</h2>
+            <div id="proportion">
+            </div>
+            <p id ="strep">
+              According to the CDC, there are up to 2.6 million strep throat infections per year in the United States. Of these cases,
+              only 1,300 are drug-resistant infections which equates to 1 in 2,000 cases. Out of these 1,300 cases, there are 
+              160 deaths. Therefore, in every 8 drug-resistant strep throat infections, 1 person is likely to die. 
+            </p>
+          </section>
+
 	       
 	        <section id="basic-info" class="step">
-	        	<div id="second" class="row">
-  	        		<h2>What is Antibiotic Resistance?</h2>
-  	        		<div class="col-lg-4 explanation">
-  						<p><strong>Antibiotic resistance</strong> is the ability of microbes such as bacteria, viruses, fungi and parasites
-  							to resist the effect of antibiotics. 
-  						</p>
-  					</div>
-  					<div class="col-lg-4 explanation">
-  						<p>Bacteria evolve resistance and immunity to antibiotics through natural selection. 
-  							Resistant bacteria evolve, reproduce and spread throughout your body which can potentially lead 
-  							to more serious issues.
-  						</p>
-  					</div>
-  					<div class="col-lg-4 explanation">
-  						<p>Some microbes are harmless and even beneficial to health, but some can be harmful and cause disease
-  							to humans, animals or plants. Each and every microbe has the potential to become drug-resistant organisms.
-  						</p>
-  					</div>
-  				</div>
+  	        	<div id="second" class="row"> 
+    	        		<h2>What is Antibiotic Resistance?</h2>
+    	        		<div class="col-lg-4 explanation">
+        						<p><strong>Antibiotic resistance</strong> is the ability of microbes such as bacteria, viruses, fungi and parasites
+        							to resist the effect of antibiotics. 
+        						</p>
+        					</div>
+    					   <div class="col-lg-4 explanation">
+        						<p>Bacteria evolve resistance and immunity to antibiotics through natural selection. 
+        							Resistant bacteria evolve, reproduce and spread throughout your body which can potentially lead 
+        							to more serious issues.
+        						</p>
+        					</div>
+        					<div class="col-lg-4 explanation">
+      						<p>Some microbes are harmless and even beneficial to health, but some can be harmful and cause disease
+      							to humans, animals or plants. Each and every microbe has the potential to become drug-resistant organisms.
+      						</p>
+      					</div>
+    				</div>
+
 	        </section>
 
 	        <section class="step">
@@ -90,29 +100,29 @@
 	        	</div>
 	        </section>  
 
-          <section class="accomplishes" class="step">
+          <section id="accomplishments" class="step">
             <div class="inner-accomplishments">
               <h2>What Our Visualization Accomplishes</h2>
-              <h4>Allows users to run various simulations to see how a short in treatment duration can impact the volume of
-                  resistant bacteria in one's system.</h4>
+              <p>Allows users to run various simulations to see how stopping treatment early can impact the total number of
+                  resistant bacteria in one's system.</p>
             </div> 
-            <div class="small-accomplishes">
-              <p>Antibiotic</p>
+            <div>
+             <div class="small-accomplishes">
+                <p>Antibiotic</p>
+              </div>
+              <div class="small-accomplishes">
+                <p>Bacteria</p>
+              </div>
             </div>
-            <div class="small-accomplishes">
-              <p>Bacteria</p>
+            <div>
+              <div class="small-accomplishes2">
+                <p>Tsdlkf</p>
+              </div>
+              <div class="small-accomplishes2">
+                <p>sdfsd</p>
+              </div>
             </div>
           </section>
-
-         <!--  <section id="small" class="step">
-            <div class="small-accomplishes">
-              <p>Antibiotic</p>
-            </div>
-            <div class="small-accomplishes">
-              <p>Bacteria</p>
-            </div>
-          </section>
- -->
 
           <section id="visualization" class="step">
             <div class="container">
@@ -125,6 +135,7 @@
                   <!-- Insert D3 Display element here -->
                   </div>
                   <div id="time">
+
                     <a id="btn-play"class="btn btn-success"><i class="fa fa-play"></i></a>
                     <a id="btn-stop" class="btn btn-danger"><i class="fa fa-stop"></i></a>
                     <a id="btn-fast" class="btn btn-info"><i class="fa fa-step-forward"></i></a>
@@ -142,7 +153,7 @@
 
                 <div id="sliders">
                   <div id="values">
-                    <h3>Starting Values:</h3>
+                    <h3 id="starting-values">Starting Values:</h3>
                         <p id="displayDosage">Dosage: 500mg</p>
                         <input type="range" min="100" max="1000" value="500" step="100" id="dosage" oninput="onInputDosage(value)">
                         <p id="displayTreatmentDuration">Treatment Duration: 5 days</p>
@@ -155,20 +166,36 @@
                       <p id="numberBacteriaEliminated">Number of Bacteria Eliminated: 0</p>
                       <p id="numberBacteriaAlive">Number of Bacteria Alive: 1000</p>
                   </div>
+                <div id="key">
+                  <div class="key-height">
+                    <svg height="30" width="30">
+                      <image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://localhost/autumngrassel.github.io/images/medical.svg" width="25" height="30" x="0" y="2"></image>
+                    </svg>
+                    <p class="keyStuff"> Antibiotic</p>
+                  </div>
+                  <div class="key-height">
+                    <svg height="30" width="30">
+                      <rect class="bacteria" x="0" y="10" height="15" width="25" rx="8" fill="purple"></rect>
+                    </svg>
+                      <p class="keyStuff"> Bacteria</p>
+                  </div>
+                  <div class="key-height">
+                    <svg height="30" width="30">
+                      <rect class="bacteria" x="0" y="10" height="15" width="25" rx="8" fill="#33ff33"></rect>
+                    </svg>
+                    <p class="keyStuff"> Resistant Bacteria</p>
+                  </div>
                 </div>
-              </div>
-
-              <div id="buttons">
-                <button onclick="advance()" type="button" class="btn btn-primary">Advance</button>
-                <button onclick="removeAll()" type="button" class="btn">Clear</button>
+                </div>
               </div>
             </div>
           </div>
           </section>
       </div>
-    <script src="javascript/main.js" charset="utf-8"></script>
-    <script src="/javascript/explanations.js" charset="utf-8"></script>
-    <script src="/javascript/scroller.js" charset="utf-8"></script>
+    <script src="http://localhost/autumngrassel.github.io/javascript/main.js" charset="utf-8"></script>
+    <script src="http://localhost/autumngrassel.github.io/javascript/explanations.js" charset="utf-8"></script>
+    <script src="http://localhost/autumngrassel.github.io/javascript/scroller.js" charset="utf-8"></script>
+    <script src="http://localhost/autumngrassel.github.io/javascript/proportion.js" charset="utf-8"></script>
   </div>
 </body>
 </html>

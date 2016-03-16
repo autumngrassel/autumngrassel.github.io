@@ -130,7 +130,7 @@ function drawAntibiotics() {
 			rotate = -1 * rotate;
 		}
 		svg.append("svg:image")
-	  		.attr("xlink:href", "/images/medical.svg")
+	  		.attr("xlink:href", "http://localhost/autumngrassel.github.io/images/medical.svg")
 	  		.attr("class", "antibiotic")
 	  		.attr("width", 25)
 	  		.attr("height", 30)
@@ -352,3 +352,4 @@ function sliderUpdate() {
 
 drawBacteria();
 drawAntibiotics();
+
