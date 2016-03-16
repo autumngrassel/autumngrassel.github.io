@@ -105,24 +105,37 @@ img {
 
 .accomplishes {
 	background-color: #424242;
-	opacity: 0.3;
 	margin-left: 200px;
 	width:500px;
 	height:400px;
 	color: white;
 	padding: 10px;
 
-     -webkit-transition: all 1s ease;
+}
+
+
+.inner-accomplishments {
+	padding: 30px;
+}
+
+.small-accomplishes {
+	background-color: #424242;
+	opacity: 0.3;
+	margin-left: 100px;
+	width:200px;
+	height:100px;
+	color: white;
+	padding: 10px;
+	float: left;
+
+    -webkit-transition: all 1s ease;
     -moz-transition: all 1s ease;
     -o-transition: all 1s ease;
 }
 
-.accomplishes:hover {
-	height: 433px;
-	width: 550px;
-	margin-left: -50px;
-}
 
-.inner-accomplishments {
-	padding: 30px;
+.small-accomplishes:hover {
+	height: 130px;
+	width: 230px;
+	margin-left: -10px;
 }
