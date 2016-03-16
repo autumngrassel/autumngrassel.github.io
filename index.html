@@ -90,63 +90,80 @@
 	        	</div>
 	        </section>  
 
-          <section class="step">
-            <div id="accomplishes">
+          <section class="accomplishes" class="step">
+            <div class="inner-accomplishments">
               <h2>What Our Visualization Accomplishes</h2>
-              <p>it ad;lfkaj;sdlkfja;sldkfja;sldkfj;asldkfj;asldkjf;asldkfja;lsdkfja;sldkfja;sldkfj;asldkfja;sldkjf</p>
+              <h4>Allows users to run various simulations to see how a short in treatment duration can impact the volume of
+                  resistant bacteria in one's system.</h4>
+            </div> 
+            <div class="small-accomplishes">
+              <p>Antibiotic</p>
+            </div>
+            <div class="small-accomplishes">
+              <p>Bacteria</p>
             </div>
           </section>
 
-          <section class="step">
+         <!--  <section id="small" class="step">
+            <div class="small-accomplishes">
+              <p>Antibiotic</p>
+            </div>
+            <div class="small-accomplishes">
+              <p>Bacteria</p>
+            </div>
+          </section>
+ -->
+
+          <section id="visualization" class="step">
             <div class="container">
-          <div id="first">
-            <br/>
-            <div>
-              <h1>Antibiotic Simulation</h1>
-              <div id="main" width="800" height="400">
-                <div id="display" width="800" height="400">
-                <!-- Insert D3 Display element here -->
-                </div>
-                <div id="time">
-                  <a id="btn-play"class="btn btn-success"><i class="fa fa-play"></i></a>
-                  <a id="btn-stop" class="btn btn-danger"><i class="fa fa-stop"></i></a>
-                  <a id="btn-fast" class="btn btn-info"><i class="fa fa-step-forward"></i></a>
-                  <a id="btn-2fast" class="btn btn-primary"><i class="fa fa-fast-forward"></i></a>
-                  <div id="timebar" class="progressjs-progress progressjs-theme-green"> 
-                    <div class="progressjs-inner">
-                      <div class="progressjs-percent">
-                        3%
+            <div id="first">
+              <br/>
+              <div>
+                <h1>Antibiotic Simulation</h1>
+                <div id="main" width="800" height="400">
+                  <div id="display" width="800" height="400">
+                  <!-- Insert D3 Display element here -->
+                  </div>
+                  <div id="time">
+                    <a id="btn-play"class="btn btn-success"><i class="fa fa-play"></i></a>
+                    <a id="btn-stop" class="btn btn-danger"><i class="fa fa-stop"></i></a>
+                    <a id="btn-fast" class="btn btn-info"><i class="fa fa-step-forward"></i></a>
+                    <a id="btn-2fast" class="btn btn-primary"><i class="fa fa-fast-forward"></i></a>
+                    <div id="timebar" class="progressjs-progress progressjs-theme-green"> 
+                      <div class="progressjs-inner">
+                        <div class="progressjs-percent">
+                          3%
+                        </div>
                       </div>
                     </div>
                   </div>
+
                 </div>
 
+                <div id="sliders">
+                  <div id="values">
+                    <h3>Starting Values:</h3>
+                        <p id="displayDosage">Dosage: 500mg</p>
+                        <input type="range" min="100" max="1000" value="500" step="100" id="dosage" oninput="onInputDosage(value)">
+                        <p id="displayTreatmentDuration">Treatment Duration: 5 days</p>
+                        <input type="range" min="2" max="15" value="5" step="1" id="treatmentDuration" oninput="onInputDuration(value)">
+                        <p id="displayBacteriaColony">Size of Bacteria Colony: 1000</p>
+                        <input type="range" min="500" max="2000" value="1000" step="100" id="bacteriaColony" oninput="onInputColonySize(value)">
+                  </div>
+                  <div id="stats">
+                      <h3>Current Statistics:</h3>
+                      <p id="numberBacteriaEliminated">Number of Bacteria Eliminated: 0</p>
+                      <p id="numberBacteriaAlive">Number of Bacteria Alive: 1000</p>
+                  </div>
+                </div>
               </div>
 
-              <div id="sliders">
-                <div id="values">
-                  <h3>Starting Values:</h3>
-                      <p id="displayDosage">Dosage: 500mg</p>
-                      <input type="range" min="100" max="1000" value="500" step="100" id="dosage" oninput="onInputDosage(value)">
-                      <p id="displayTreatmentDuration">Treatment Duration: 5 days</p>
-                      <input type="range" min="2" max="15" value="5" step="1" id="treatmentDuration" oninput="onInputDuration(value)">
-                      <p id="displayBacteriaColony">Size of Bacteria Colony: 1000</p>
-                      <input type="range" min="500" max="2000" value="1000" step="100" id="bacteriaColony" oninput="onInputColonySize(value)">
-                </div>
-                <div id="stats">
-                    <h3>Current Statistics:</h3>
-                    <p id="numberBacteriaEliminated">Number of Bacteria Eliminated: 0</p>
-                    <p id="numberBacteriaAlive">Number of Bacteria Alive: 1000</p>
-                </div>
+              <div id="buttons">
+                <button onclick="advance()" type="button" class="btn btn-primary">Advance</button>
+                <button onclick="removeAll()" type="button" class="btn">Clear</button>
               </div>
-            </div>
-
-            <div id="buttons">
-              <button onclick="advance()" type="button" class="btn btn-primary">Advance</button>
-              <button onclick="removeAll()" type="button" class="btn">Clear</button>
             </div>
           </div>
-        </div>
           </section>
       </div>
     <script src="javascript/main.js" charset="utf-8"></script>
