@@ -103,16 +103,26 @@ img {
 	height: 400px;
 }
 
-#accomplishes {
-	background-color: #333;
+.accomplishes {
+	background-color: #424242;
 	opacity: 0.3;
 	margin-left: 200px;
 	width:500px;
 	height:400px;
 	color: white;
 	padding: 10px;
+
+     -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
 }
 
-#inner-accomplishments {
+.accomplishes:hover {
+	height: 433px;
+	width: 550px;
+	margin-left: -50px;
+}
+
+.inner-accomplishments {
 	padding: 30px;
 }
