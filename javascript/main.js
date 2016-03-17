@@ -20,7 +20,7 @@ var time = 0;
 var damagePerHour = getDamage();
 
 function getDamage() {
-	return dosage / colonySize * 10.0 / 6;
+	return dosage / colonySize * 10.0 / 5;
 }
 
 // $("#btn-play").click(function (d) {
@@ -87,7 +87,6 @@ var xStart = parseInt(d3.select("#svg_main").style("x"), 10);
 var yStart = parseInt(d3.select("#svg_main").style("y"), 10);
 
 var height = parseInt(d3.select("#svg_main").style("height"), 10);
-console.log(width + " w ," + height + " h, " + xStart + " xStart, " + yStart + " yStart");
 
 var borderPath = svg.append("rect")
 	.attr("x", 0)
@@ -165,12 +164,10 @@ function removeAll() {
 function drawBacteria() {
 	// populate svg with bacteria placed randomly
 	for (var i = 0; i <= colonySize / 5; i++) {
-		//Math.random(); // returns between 0 and 1
 		var direction = parseInt(Math.floor(Math.random() * 4) + 1); // direction
 		var resistance = 0;
 		if (Math.random() < 0.02) { // 2% of bacteria are resistant
 			resistance = Math.ceil(Math.random() * 3);
-			//console.log(resistance);
 		}
 		var x = Math.floor(Math.random() * (780)) + 0; 	
 		var y = Math.floor(Math.random() * (380)) + 10;
@@ -180,7 +177,7 @@ function drawBacteria() {
 		}
 		var startingHealth = Math.round(15 + Math.random() * 10);
 		if (resistance > 0) {
-			startingHealth = 25 + 10 * resistance;
+			startingHealth = 27 + 3 * resistance;
 		}
 		var bact = d3.select("#svg_main").append("rect")         // attach a rectangle
 	      	.attr("class", "bacteria")
@@ -204,6 +201,7 @@ function drawBacteria() {
 		    	}
 		    })
 		    .attr("direction", direction)
+		    .attr("untilReproduce", getReproduceValue())
 	      	.attr("opacity", 0.7)
 	      	.attr("survivalTime", 0)
 	      	.attr("timeCreated", time)
@@ -212,9 +210,6 @@ function drawBacteria() {
 	    	.on("mouseout", MouseOutBacteria)
 	    	.attr("transform", "rotate(" + rotate + " " + (x + 10 ) + " " + (y + 5) + ")")
 	    	;
-	      // set the y corner curve radius
-		    // if you don't have the rotation, they're all in the frame
-		    //.attr("transform", "rotate(" + rotate + ")");        // set the y corner curve radius
 
 		if (resistance > 0) {
 			bact.attr("fill", function (d) {
@@ -226,9 +221,9 @@ function drawBacteria() {
 					return "#1E6333";
 				}
 			})
+			.attr("untilReproduce", getReproduceValue() + 5)
 			.attr("opacity", 0.7);
 		}
-		// console.log(bact.attr("x"));
 		var rotateString = "" + getRotateString(bact.attr("x"), bact.attr("y"), bact.attr("angle"));
 		bact.attr("transform", rotateString);
 
@@ -264,6 +259,15 @@ function moveBacteria(steps) {
 				newY += 400
 			} 
 			return newY;
+		})
+		.attr("untilReproduce", function() {
+			var thisBact = d3.select(this);
+			var old = parseInt(thisBact.attr("untilReproduce"));
+			var newR = old - (1 * steps);
+			if (newR < 1) {
+				newR = 0;
+			}
+			return newR;
 		})
 		.attr("survivalTime", function() {
 			var thisBact = d3.select(this);
@@ -319,8 +323,6 @@ function moveAntibiotics() {
 }
 
 function getRotateString(x, y, angle) {
-		//console.log("x: " + x + "   y: " + y + "   ang: " + angle);
-
 	return "rotate(" + parseInt(angle) + " " + (parseInt(x) + 10) + " " + (parseInt(y) + 5) + ")";
 }
 
@@ -348,15 +350,8 @@ function getY(quad) {
 	}
 }
 
-
-
-function sleep(milliseconds) {
-  var start = new Date().getTime();
-  for (var i = 0; i < 1e7; i++) {
-    if ((new Date().getTime() - start) > milliseconds){
-      break;
-    }
-  }
+function getReproduceValue() {
+	return (Math.floor(Math.random() * 4) + 4) * 4; //value 3 - 6
 }
 
 
@@ -380,6 +375,25 @@ function advance(steps) {
 
 		moveBacteria(steps);
 		moveAntibiotics();
+
+		d3.select("#svg_main").selectAll(".bacteria")	
+			.each(function(d) {
+				var bact = d3.select(this);
+				if (parseInt(bact.attr("untilReproduce")) < 1) {
+					bact.attr("untilReproduce", getReproduceValue());
+					var resistance = parseInt(bact.attr("resistance"));
+					var x = parseInt(bact.attr("x"));
+					var y = parseInt(bact.attr("y"));
+					drawOneBacteria(resistance, x, y);
+				}
+				if (parseInt(bact.attr("health")) < 1) {
+					bact.remove();
+				}
+
+			});
+		d3.select("#svg_main").selectAll(".bacteria[health='0']")
+			.remove();
+		d3.select("#svg_main").selectAll(".bacteria[health='0.0']").remove();
 		if (time % 6 == 0 || steps >= 6) {
 			// remove antibiotics, add antibiotics
 			d3.selectAll(".antibiotic")
@@ -387,11 +401,7 @@ function advance(steps) {
 			drawAntibiotics();
 
 		}
-		d3.select("#svg_main").selectAll(".bacteria[health='0']")
-			.remove()
-			.transition()
-			.duration(1200);
-		d3.select("#svg_main").selectAll(".bacteria[health='0.0']").remove();
+		
 	}
 }
 
@@ -420,28 +430,73 @@ function reset() {
 	sliderUpdate();
 }
 
-function play() {
-	console.log("hi");
-	var stop = true;
-
-	// while (stop == true && time < duration * 24) {
-	// 	sleep(
-	// 		);
-	// 	advance();
-	// 	console.log(time);
-	// 	stop = checkStop();
-	// }
-
-}
-var times = 0;
-function checkStop() {
-	times++;
-	if (times > 10) {
-		return false
-	} else {
-		return true;
+function drawOneBacteria(resistance, x, y) {
+	// if not already resistant, the bacteria has a chance to 
+	// become resistant
+	if (resistance == 0) {
+		if (Math.random() < 0.02) { // 2% of bacteria are resistant
+			resistance = Math.ceil(Math.random() * 3);
+		}
 	}
+	var direction = parseInt(Math.floor(Math.random() * 4) + 1); // direction
+	var rotate = Math.floor(Math.random() * 90);
+	if (Math.random() < 0.5) {
+		rotate = -1 * rotate;
+	}
+	var startingHealth = Math.round(15 + Math.random() * 10);
+	if (resistance > 0) {
+		startingHealth = 27 + 3 * resistance;
+	}
+	var bact = d3.select("#svg_main").append("rect")         // attach a rectangle
+      	.attr("class", "bacteria")
+	    .attr("x", x + 5)          // position the left of the rectangle
+	    .attr("y", y + 5)          // position the top of the rectangle
+	    .attr("height", 10)    // set the height
+	    .attr("width", 20)     // set the width
+	    .attr("rx", 5)         // set the x corner curve radius
+	    .attr("fill", "#9e9ac8")
+	    .attr("health", startingHealth)
+	    .attr("resistance", resistance) // 1 for resistance exists, 0 if not resistant
+	    .attr("resistanceLevel", function (x) {
+	    	if (resistance == 0) {
+	    		return "None";
+	    	} else if (resistance == 1) {
+	    		return "Low";
+	    	} else if (resistance == 2) {
+	    		return "Medium";
+	    	} else {
+	    		return "High";
+	    	}
+	    })
+	    .attr("untilReproduce", getReproduceValue())
+	    .attr("direction", direction)
+      	.attr("opacity", 0.7)
+      	.attr("survivalTime", 0)
+      	.attr("timeCreated", time)
+      	.attr("angle", rotate)
+		.on("mouseover", MouseOverBacteria)
+    	.on("mouseout", MouseOutBacteria)
+    	.attr("transform", "rotate(" + rotate + " " + (x + 10 ) + " " + (y + 5) + ")")
+    	;
+
+	if (resistance > 0) {
+		bact.attr("fill", function (d) {
+			if (resistance == 1) {
+				return "#A1d99B";
+			} else if (resistance == 2) {
+				return "#31A354";
+			} else {
+				return "#1E6333";
+			}
+		})
+		.attr("untilReproduce", getReproduceValue() + 5)
+		.attr("opacity", 0.7);
+	}
+	var rotateString = "" + getRotateString(bact.attr("x"), bact.attr("y"), bact.attr("angle"));
+	bact.attr("transform", rotateString);
 }
+
+
 
 drawBacteria();
 drawAntibiotics();
