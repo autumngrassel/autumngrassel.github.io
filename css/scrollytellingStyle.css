@@ -21,7 +21,7 @@ img {
 }
 
 #titleSection {
-	background-image: url("/images/background.jpg");
+	background-image: url("http://localhost/autumngrassel.github.io/images/background.jpg");
 	background-position: center top;
 	background-size: cover;
 	height: 760px;
@@ -111,28 +111,35 @@ img {
 }
 
 .inner-accomplishments {
-	background-color: #d3d3d3;
-	margin-left: 200px;
-	width:500px;
-	height:400px;
+	background-color: #424242;
+	margin: 0 auto;
+	width:700px;
+	height:300px;
 	color: white;
 	padding: 20px;
-	float: left;
 
 }
 
+
+
 #accomplishments {
 	margin-top:300px;
-	height: 700px;
+	height: 600px;
+}
+
+#bacteriaImages {
+	width: 1000px;
+    height: 100px;
+    margin: 0 auto;
+    padding-top: 30px;
 }
 
 .small-accomplishes, .small-accomplishes2 {
 	background-color: #424242;
 	opacity: 0.4;
-	/*margin: 50px;*/
-	margin-left: 120px;
-	margin-bottom: 50px;
-	margin-top: 50px;
+	margin-left: 40px;
+	margin-right: 40px;
+	margin-bottom: 40px;
 	width: 15%;
 	height:80;
 	color: white;
@@ -169,12 +176,19 @@ img {
 }
 
 #propcontainer {
-	margin-left: auto;
-	margin-right: auto;
+	width: 100%;
+	height: 200px;
+	padding: 100px;
 }
+
+#propsvg {
+	width: 600px;
+}
+
 #proportion {
+	width: 600px;
 	float: left;
-	margin-left: 1%;
+	margin: 0 auto;
 }
 
 #oneInEight {

@@ -9,7 +9,7 @@ function drawMen() {
 		
 		if (i % 2 == 0) {
 			svg.append("svg:image")
-		  		.attr("xlink:href", "/images/blueMan.svg")
+		  		.attr("xlink:href", "http://localhost/autumngrassel.github.io/images/blueMan.svg")
 		  		.attr("class", "antibiotic")
 		  		.attr("width", 100)
 		  		.attr("height", 100)
@@ -18,7 +18,7 @@ function drawMen() {
 		} else {
 
 			svg.append("svg:image")
-		  		.attr("xlink:href", "/images/blueWoman.svg")
+		  		.attr("xlink:href", "http://localhost/autumngrassel.github.io/images/blueWoman.svg")
 		  		.attr("class", "antibiotic")
 		  		.attr("width", 100)
 		  		.attr("height", 100)
@@ -28,7 +28,7 @@ function drawMen() {
 	}
 
 	svg.append("svg:image")
-		  		.attr("xlink:href", "/images/greyMan.svg")
+		  		.attr("xlink:href", "http://localhost/autumngrassel.github.io/images/greyMan.svg")
 		  		.attr("class", "antibiotic")
 		  		.attr("width", 100)
 		  		.attr("height", 100)
