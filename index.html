@@ -6,14 +6,14 @@
   <script src="/javascript/jquery-2.2.1.min.js"></script>
   <script src="/bootstrap/js/bootstrap.js"></script>
   <script src="/javascript/d3-tip.js"></script>
-<!--   <script src="/javascript/progress.min.js"></script>
- -->  
+
   <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="/css/scrollytellingStyle.css">
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Muli">
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Questrial">
   <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="/css/style.css">
+
 </head>
 <body>
   <div id='graphic'>
@@ -61,6 +61,16 @@
             <h2 id ="oneInEight">1 in 8 People Die from Drug-Resistant Strep Throat Infections</h2>
             <div id="propcontainer">
               <div id="proportion">
+                <svg id="propsvg">
+                  <image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/images/blueMan.svg" class="antibiotic" width="100" height="100" x="0" y="50"></image>
+                  <image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/images/blueWoman.svg" class="antibiotic" width="100" height="100" x="70" y="50"></image>
+                  <image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/images/blueMan.svg" class="antibiotic" width="100" height="100" x="140" y="50"></image>
+                  <image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/images/blueWoman.svg" class="antibiotic" width="100" height="100" x="210" y="50"></image>
+                  <image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/images/blueMan.svg" class="antibiotic" width="100" height="100" x="280" y="50"></image>
+                  <image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/images/blueWoman.svg" class="antibiotic" width="100" height="100" x="350" y="50"></image>
+                  <image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/images/blueMan.svg" class="antibiotic" width="100" height="100" x="420" y="50"></image>
+                  <image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/images/greyMan.svg" class="antibiotic" width="100" height="100" x="490" y="50"></image>
+              </svg>
               </div>
               <p id ="strep">
                 According to the CDC, there are up to 2.6 million strep throat infections per year in the United States. Of these cases,
@@ -108,20 +118,30 @@
               <p>Allows users to run various simulations to see how stopping treatment early can impact the total number of
                   resistant bacteria in one's system.</p>
             </div> 
-            <div>
+            <div id="bacteriaImages">
              <div class="small-accomplishes">
-                <p>Antibiotic</p>
+                <p>Strep Throat</p>
+                <div class="hiddenImage">
+                  <img src="/images/strep.jpg" />
+                </div>
               </div>
               <div class="small-accomplishes">
-                <p>Bacteria</p>
-              </div>
-            </div>
-            <div>
-              <div class="small-accomplishes2">
-                <p>Tsdlkf</p>
+                <p>MRSA</p> 
+                <div class="hiddenImage">
+                  <img src="/images/mrsa.jpg" />
+                </div>
               </div>
               <div class="small-accomplishes2">
-                <p>sdfsd</p>
+                <p>Tuberculosis</p>
+                 <div class="hiddenImage">
+                  <img src="/images/tb.jpg" />
+                </div>
+              </div>
+              <div class="small-accomplishes2">
+                <p>Salmonella</p>
+                 <div class="hiddenImage">
+                  <img src="/images/salmonella.png" />
+                </div>
               </div>
             </div>
           </section>
@@ -194,7 +214,6 @@
     <script src="/javascript/main.js" charset="utf-8"></script>
     <script src="/javascript/explanations.js" charset="utf-8"></script>
     <script src="/javascript/scroller.js" charset="utf-8"></script>
-    <script src="/javascript/proportion.js" charset="utf-8"></script>
   </div>
 </body>
 </html>
