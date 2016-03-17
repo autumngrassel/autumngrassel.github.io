@@ -273,9 +273,9 @@ function moveBacteria(steps) {
 			var thisBact = d3.select(this);
 			var newHealth = parseInt(thisBact.attr("health") - steps * damagePerHour);
 			if (Math.round(newHealth) <= 0) {
-				return "0";
+				return 0;
 			} else {
-				return "" + Math.floor(newHealth);
+				return Math.floor(newHealth);
 			}
 		})
 		.attr("transform", function() {
@@ -380,7 +380,7 @@ function advance(steps) {
 
 		moveBacteria(steps);
 		moveAntibiotics();
-		if (time % 6 == 0) {
+		if (time % 6 == 0 || steps >= 6) {
 			// remove antibiotics, add antibiotics
 			d3.selectAll(".antibiotic")
 				.remove();
