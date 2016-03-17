@@ -89,14 +89,14 @@ var yStart = parseInt(d3.select("#svg_main").style("y"), 10);
 var height = parseInt(d3.select("svg_main").style("height"), 10);
 console.log(width + " w ," + height + " h, " + xStart + " xStart, " + yStart + " yStart");
 
-// var borderPath = svg.append("rect")
-// 	.attr("x", 0)
-// 	.attr("y", 0)
-// 	.attr("height", 400)
-// 	.attr("width", width)
-// 	.style("stroke", 'black')
-// 	.style("fill", "none")
-// 	.style("stroke-width", 1);
+var borderPath = svg.append("rect")
+	.attr("x", 0)
+	.attr("y", 0)
+	.attr("height", 400)
+	.attr("width", width)
+	.style("stroke", 'black')
+	.style("fill", "none")
+	.style("stroke-width", 1);
 
 //  Function triggered when a cell is hovered over
 var MouseOverBacteria = function() {
