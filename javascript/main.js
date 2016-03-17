@@ -375,7 +375,7 @@ function advance(steps) {
 		d3.select("#timeElapsed").html(function() {
 			var days = Math.floor(time / 24);
 			var hours = time % 24;
-			return "Time Elapsed: " + days + " days, " + hours+ " hours";
+			return "" + days + " days, " + hours+ " hours";
 		});
 
 		moveBacteria(steps);

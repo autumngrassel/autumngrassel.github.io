@@ -183,7 +183,7 @@ img {
 }
 
 #numberBacteriaEliminated, #numberBacteriaAlive, #values.p, .keyStuff, #timeElapsed {
-	font-size: 14px;
+	font-size: 20px;
 }
 
 .keyStuff {
