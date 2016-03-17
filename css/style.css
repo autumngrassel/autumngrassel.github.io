@@ -43,6 +43,10 @@
   height: 400px;
 }
 
+#visualization {
+  margin-bottom: 0px;
+}
+
 .progressjs-theme-blue .progressjs-inner {
   transition: all 0.3s ease-out;
   float:left;

@@ -59,13 +59,15 @@
 
           <section id="strep-vis" class="step">
             <h2 id ="oneInEight">1 in 8 People Die from Drug-Resistant Strep Throat Infections</h2>
-            <div id="proportion">
+            <div id="propcontainer">
+              <div id="proportion">
+              </div>
+              <p id ="strep">
+                According to the CDC, there are up to 2.6 million strep throat infections per year in the United States. Of these cases,
+                only 1,300 are drug-resistant infections which equates to 1 in 2,000 cases. Out of these 1,300 cases, there are 
+                160 deaths. Therefore, in every 8 drug-resistant strep throat infections, 1 person is likely to die. 
+              </p>
             </div>
-            <p id ="strep">
-              According to the CDC, there are up to 2.6 million strep throat infections per year in the United States. Of these cases,
-              only 1,300 are drug-resistant infections which equates to 1 in 2,000 cases. Out of these 1,300 cases, there are 
-              160 deaths. Therefore, in every 8 drug-resistant strep throat infections, 1 person is likely to die. 
-            </p>
           </section>
 
 	       
@@ -152,7 +154,7 @@
                 <div id="sliders">
                   <div id="values">
                     <h3 id="starting-values">Starting Values:</h3>
-                        <p id="displayDosage">Dosage: 500mg</p>
+                        <p id="displayDosage">Antibioitc Dosage: 500mg</p>
                         <input type="range" min="100" max="1000" value="500" step="100" id="dosage" oninput="onInputDosage(value)">
                         <p id="displayTreatmentDuration">Treatment Duration: 5 days</p>
                         <input type="range" min="2" max="15" value="5" step="1" id="treatmentDuration" oninput="onInputDuration(value)">

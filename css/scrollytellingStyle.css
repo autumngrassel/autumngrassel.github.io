@@ -168,6 +168,10 @@ img {
 	margin-left: 100px;
 }
 
+#propcontainer {
+	margin-left: auto;
+	margin-right: auto;
+}
 #proportion {
 	float: left;
 	margin-left: 1%;
