@@ -13,7 +13,6 @@
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Muli">
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Questrial">
   <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="/css/progress.min.css">
   <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
@@ -136,14 +135,16 @@
                   <!-- Insert D3 Display element here -->
                   </div>
                   <div id="time">
-
-                    <a id="btn-play"class="btn btn-success" onclick="advance()"><i class="fa fa-play"></i></a>
-                    <a id="btn-stop" class="btn btn-danger"><i class="fa fa-stop"></i></a>
-                   
                     <div id="timebar" class="progressjs-progress progressjs-theme-green"> 
                      
                       <div id="current_progress" width="1%"></div>
+                      
                     </div>
+                    Advance: 
+                      <button class="btn-info" onclick="advance(1)">1 hour</button>
+                      <button class="btn-info" onclick="advance6()">6 hours</button>
+                      <button class="btn-info" onclick="advance24()">24 hours</button>
+                      <button id="reset-btn" class="btn-success" onclick="reset()"> Reset</button>
                   </div>
 
                 </div>

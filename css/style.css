@@ -30,7 +30,7 @@
     height: 100%;
 }
 
-#time .btn {
+#time {
   color: black;
   float: left;
   font-size: 1.5em;
@@ -53,9 +53,10 @@
 }
 
 #timebar {
-  margin-top: 12px;
+  margin-top: 5px;
+  margin-bottom: 20px;
   height: 40px;
-  width: 550px;
+  width: 780px;
   float: left;
   color: white;
   border: 2px solid black;
@@ -73,8 +74,20 @@
 	padding: 10px;
 }
 
+#reset-btn {
+  float: right;
+}
+
 #buttons {
 	float: right;
+}
+
+button {
+  border-radius: 4px;
+  border-width: 0px;
+  box-shadow: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 #svg_main {
@@ -226,7 +239,7 @@ h1, h2, h3 {
   font-family: Questrial, sans-serif;
 }
 
-p, a {
+p, a, #time {
   font-family: Muli, sans-serif;
   font-size: 20px;
 }
