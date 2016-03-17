@@ -41,13 +41,16 @@ img {
 }
 
 #authors {
-	font-size: 22px;
+	font-size: 25px;
+	margin-top: 20px;
 }
 
 .text-inf {
 	position: relative;
 	height: 0px;
-	padding-top: 20px;
+	padding-top: 200px;
+	font-weight: bold;
+	font-size: 60px;
 }
 
 #definitions {
@@ -175,7 +178,7 @@ img {
 	padding: 40px;
 }
 
-#numberBacteriaEliminated, #numberBacteriaAlive, #values.p, .keyStuff {
+#numberBacteriaEliminated, #numberBacteriaAlive, #values.p, .keyStuff, #timeElapsed {
 	font-size: 14px;
 }
 
@@ -183,6 +186,11 @@ img {
 	display: inline-block;
 	vertical-align: middle;
 	padding-left: 8px;
+}
+#key {
+	padding: 10px;
+	border: 1px solid black;
+	border-radius: 5px;
 }
 
 .key-height {

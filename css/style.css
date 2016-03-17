@@ -25,7 +25,7 @@
 }
 
 #current_progress {
-    width: 80%;
+    width: 2px;
     background-color: rgb(48, 113, 169);
     height: 100%;
 }
