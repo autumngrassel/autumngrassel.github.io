@@ -39,17 +39,18 @@ img {
 	z-index: -1;
 }
 
-#authors {
-	font-size: 25px;
-	margin-top: 20px;
-}
 
 .text-inf {
 	position: relative;
 	height: 0px;
 	padding-top: 200px;
 	font-weight: bold;
-	font-size: 60px;
+	font-size: 48pt;
+}
+
+#authors {
+	font-size: 28pt;
+	font-weight: normal;
 }
 
 #definitions {
