@@ -232,30 +232,32 @@ function drawBacteria() {
 
 function moveBacteria(steps) {
 	var duration = 1000;
+
+	d3.select("#svg_main").selectAll(".bacteria").attr("transform", 0);
 	
 	d3.select("#svg_main").selectAll(".bacteria")
 		.transition()
 		.attr("x", function() {
 			var thisBact = d3.select(this);
 			var oldX = parseInt(thisBact.attr("x"));
-			var newX = parseInt(thisBact.attr("x")) + steps * (10 * getX(parseInt(thisBact.attr("direction"))));
-			if (newX > 800) {
-				thisBact.attr("bigXChange", true);
-				newX -= 800;
-			} else if (newX < 0) {
-				thisBact.attr("bigXChange", true);
-				newX += 800;
+			var newX = parseInt(thisBact.attr("x")) + steps * (100 * getX(parseInt(thisBact.attr("direction"))));
+			while (newX > 780) {
+				newX -= 400;
+			} 
+			while (newX < 20) {
+				newX += 400;
 			} 
 			return newX;
 		})
 		.attr("y", function() {
 			var thisBact = d3.select(this);
 			var oldY = parseInt(thisBact.attr("y"));
-			var newY = parseInt(thisBact.attr("y")) + steps * (10 * getY(parseInt(thisBact.attr("direction"))));
+			var newY = parseInt(thisBact.attr("y")) + steps * (100 * getY(parseInt(thisBact.attr("direction"))));
 			
-			if (newY > 400) {
+			while (newY > 380) {
 				newY -= 400;
-			} else if (newY < 0) {
+			} 
+			while(newY < 20) {
 				newY += 400
 			} 
 			return newY;
@@ -287,7 +289,7 @@ function moveBacteria(steps) {
 	    	return getRotateString(thisBact.attr("x"), thisBact.attr("y"), thisBact.attr("angle"));
 	    })
 	    .duration(1200);
-	d3.select("#svg_main").selectAll(".bacteria[health='0']").remove();
+	//d3.select("#svg_main").selectAll(".bacteria[health='0']").remove().duration(1200).delay(1200);
 }
 
 function moveAntibiotics() {
@@ -298,10 +300,8 @@ function moveAntibiotics() {
 			var oldX = parseInt(thisBact.attr("x"));
 			var newX = parseInt(thisBact.attr("x")) + (10 * getX(parseInt(thisBact.attr("direction"))));
 			if (newX > 800) {
-				thisBact.attr("bigXChange", true);
 				newX -= 800;
 			} else if (newX < 0) {
-				thisBact.attr("bigXChange", true);
 				newX += 800;
 			} 
 			return newX;
@@ -387,13 +387,12 @@ function advance(steps) {
 					drawOneBacteria(resistance, x, y);
 				}
 				if (parseInt(bact.attr("health")) < 1) {
-					bact.remove();
+					bact.remove().transition().duration(1200);
 				}
 
 			});
-		d3.select("#svg_main").selectAll(".bacteria[health='0']")
-			.remove();
-		d3.select("#svg_main").selectAll(".bacteria[health='0.0']").remove();
+	
+		//d3.select("#svg_main").selectAll(".bacteria[health='0.0']").remove();
 		if (time % 6 == 0 || steps >= 6) {
 			// remove antibiotics, add antibiotics
 			d3.selectAll(".antibiotic")
@@ -476,7 +475,7 @@ function drawOneBacteria(resistance, x, y) {
       	.attr("angle", rotate)
 		.on("mouseover", MouseOverBacteria)
     	.on("mouseout", MouseOutBacteria)
-    	.attr("transform", "rotate(" + rotate + " " + (x + 10 ) + " " + (y + 5) + ")")
+    	.attr("transform", "rotate(" + rotate + " " + (x + 10) + " " + (y + 5) + ")")
     	;
 
 	if (resistance > 0) {
