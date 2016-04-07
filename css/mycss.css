@@ -1,0 +1,26 @@
+#heading, #main {
+	margin-top: 5em;
+	margin-left: 3em;
+
+}
+
+#id_date, #date {
+	width: 140px;
+}
+
+td {
+	padding: 5px;
+	vertical-align: top;
+
+}
+
+#tablehead {
+	text-align: center;
+	/*font-size: larger;
+	font-weight: bold;*/
+}
+
+#button {
+	text-align: center;
+	margin-top: 3em;
+}
